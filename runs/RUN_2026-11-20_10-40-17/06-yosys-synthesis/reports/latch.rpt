@@ -1,0 +1,10 @@
+
+24. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\res_n' from process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$proc$/foss/designs/dsld/rtl/alu_core.v:65$14'.
+No latch inferred for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\c_n' from process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$proc$/foss/designs/dsld/rtl/alu_core.v:65$14'.
+No latch inferred for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\o_n' from process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$proc$/foss/designs/dsld/rtl/alu_core.v:65$14'.
+No latch inferred for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\n_n' from process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$proc$/foss/designs/dsld/rtl/alu_core.v:65$14'.
+No latch inferred for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\sel' from process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$proc$/foss/designs/dsld/rtl/alu_core.v:50$13'.
+No latch inferred for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\popcount$func$/foss/designs/dsld/rtl/hybrid_ring_counter.v:46$25.$result' from process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$proc$/foss/designs/dsld/rtl/hybrid_ring_counter.v:46$50'.
+No latch inferred for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\next_pattern' from process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$proc$/foss/designs/dsld/rtl/hybrid_ring_counter.v:71$42'.
+No latch inferred for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\do_recover' from process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$proc$/foss/designs/dsld/rtl/hybrid_ring_counter.v:71$42'.

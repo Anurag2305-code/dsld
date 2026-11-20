@@ -1,0 +1,3031 @@
+{
+  "creator": "Yosys 0.70 (git sha1 28ba3cb92, Release, GNU /usr/bin/c++ 13.3.0)",
+  "modules": {
+    "alu_top": {
+      "attributes": {
+        "hdlname": "alu_top",
+        "dynports": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "/foss/designs/dsld/rtl/alu_top.v:6.1-56.10"
+      },
+      "parameter_default_values": {
+        "N": "00000000000000000000000000001000",
+        "STATIC_PATTERN": "10000001",
+        "W": "00000000000000000000000000000100"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst_n": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "a": {
+          "direction": "input",
+          "bits": [ 4, 5, 6, 7 ]
+        },
+        "b": {
+          "direction": "input",
+          "bits": [ 8, 9, 10, 11 ]
+        },
+        "mode": {
+          "direction": "input",
+          "bits": [ 12, 13 ]
+        },
+        "halt": {
+          "direction": "input",
+          "bits": [ 14 ]
+        },
+        "result": {
+          "direction": "output",
+          "bits": [ 15, 16, 17, 18, 19 ]
+        },
+        "op_mask": {
+          "direction": "output",
+          "bits": [ 20, 21, 22, 23, 24, 25, 26, 27 ]
+        },
+        "zero": {
+          "direction": "output",
+          "bits": [ 28 ]
+        }
+      },
+      "cells": {
+        "$flatten\\u_alu.$add$/foss/designs/dsld/rtl/alu_core.v:40$9": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000101",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000101",
+            "Y_WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:40.25-40.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 5, 6, 7, "0" ],
+            "B": [ 8, 9, 10, 11, "0" ],
+            "Y": [ 29, 30, 31, 32, 33 ]
+          }
+        },
+        "$flatten\\u_alu.$and$/foss/designs/dsld/rtl/alu_core.v:36$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:36.33-36.38"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 5, 6, 7 ],
+            "B": [ 8, 9, 10, 11 ],
+            "Y": [ 34, 35, 36, 37 ]
+          }
+        },
+        "$flatten\\u_alu.$eq$/foss/designs/dsld/rtl/alu_core.v:109$24": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000101",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:109.31-109.51"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 38, 39, 40, 41, 42 ],
+            "Y": [ 43 ]
+          }
+        },
+        "$flatten\\u_alu.$not$/foss/designs/dsld/rtl/alu_core.v:39$8": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:39.32-39.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 44, 45, 46, 47 ],
+            "Y": [ 48, 49, 50, 51 ]
+          }
+        },
+        "$flatten\\u_alu.$or$/foss/designs/dsld/rtl/alu_core.v:37$5": {
+          "hide_name": 1,
+          "type": "$or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:37.33-37.38"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 5, 6, 7 ],
+            "B": [ 8, 9, 10, 11 ],
+            "Y": [ 52, 53, 54, 55 ]
+          }
+        },
+        "$flatten\\u_alu.$procdff$247": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "00000000000000000000000000000000",
+            "ARST_VALUE": "00000",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:94.5-111.8"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 56, 57, 58, 59, 60 ],
+            "Q": [ 15, 16, 17, 18, 19 ]
+          }
+        },
+        "$flatten\\u_alu.$procdff$252": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "00000000000000000000000000000000",
+            "ARST_VALUE": "00000000",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:94.5-111.8"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 61, 62, 63, 64, 65, 66, 67, 68 ],
+            "Q": [ 20, 21, 22, 23, 24, 25, 26, 27 ]
+          }
+        },
+        "$flatten\\u_alu.$procdff$262": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "00000000000000000000000000000000",
+            "ARST_VALUE": "0",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:94.5-111.8"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 69 ],
+            "Q": [ 28 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$105": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:57.18-57.26|/foss/designs/dsld/rtl/alu_core.v:57.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "1", "1" ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 70 ],
+            "Y": [ 71, 72, 73 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$108": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:56.18-56.26|/foss/designs/dsld/rtl/alu_core.v:56.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 71, 72, 73 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 74 ],
+            "Y": [ 75, 76, 77 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$111": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:55.18-55.26|/foss/designs/dsld/rtl/alu_core.v:55.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 75, 76, 77 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 78 ],
+            "Y": [ 79, 80, 81 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$114": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:54.18-54.26|/foss/designs/dsld/rtl/alu_core.v:54.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 79, 80, 81 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 82 ],
+            "Y": [ 83, 84, 85 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$117": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:53.18-53.26|/foss/designs/dsld/rtl/alu_core.v:53.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 83, 84, 85 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 86 ],
+            "Y": [ 87, 88, 89 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$120": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:52.18-52.26|/foss/designs/dsld/rtl/alu_core.v:52.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88, 89 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 90 ],
+            "Y": [ 91, 92, 93 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$123": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:51.18-51.26|/foss/designs/dsld/rtl/alu_core.v:51.9-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 91, 92, 93 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 94 ],
+            "Y": [ 95, 96, 97 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$126": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:57.18-57.26|/foss/designs/dsld/rtl/alu_core.v:57.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 95, 96, 97 ],
+            "B": [ "0", "1", "1" ],
+            "S": [ 70 ],
+            "Y": [ 98, 99, 100 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$129": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:56.18-56.26|/foss/designs/dsld/rtl/alu_core.v:56.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 98, 99, 100 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 74 ],
+            "Y": [ 101, 102, 103 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$132": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:55.18-55.26|/foss/designs/dsld/rtl/alu_core.v:55.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 101, 102, 103 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 78 ],
+            "Y": [ 104, 105, 106 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$135": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:54.18-54.26|/foss/designs/dsld/rtl/alu_core.v:54.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 104, 105, 106 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 82 ],
+            "Y": [ 107, 108, 109 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$138": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:53.18-53.26|/foss/designs/dsld/rtl/alu_core.v:53.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 107, 108, 109 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 86 ],
+            "Y": [ 110, 111, 112 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$141": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:52.18-52.26|/foss/designs/dsld/rtl/alu_core.v:52.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 110, 111, 112 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 90 ],
+            "Y": [ 113, 114, 115 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$144": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:51.18-51.26|/foss/designs/dsld/rtl/alu_core.v:51.9-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 113, 114, 115 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 94 ],
+            "Y": [ 116, 117, 118 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$147": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:56.18-56.26|/foss/designs/dsld/rtl/alu_core.v:56.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 116, 117, 118 ],
+            "B": [ "1", "0", "1" ],
+            "S": [ 74 ],
+            "Y": [ 119, 120, 121 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$150": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:55.18-55.26|/foss/designs/dsld/rtl/alu_core.v:55.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 119, 120, 121 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 78 ],
+            "Y": [ 122, 123, 124 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$153": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:54.18-54.26|/foss/designs/dsld/rtl/alu_core.v:54.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 122, 123, 124 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 82 ],
+            "Y": [ 125, 126, 127 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$156": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:53.18-53.26|/foss/designs/dsld/rtl/alu_core.v:53.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 125, 126, 127 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 86 ],
+            "Y": [ 128, 129, 130 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$159": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:52.18-52.26|/foss/designs/dsld/rtl/alu_core.v:52.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 128, 129, 130 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 90 ],
+            "Y": [ 131, 132, 133 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$162": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:51.18-51.26|/foss/designs/dsld/rtl/alu_core.v:51.9-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 131, 132, 133 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 94 ],
+            "Y": [ 134, 135, 136 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$165": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:55.18-55.26|/foss/designs/dsld/rtl/alu_core.v:55.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 134, 135, 136 ],
+            "B": [ "0", "0", "1" ],
+            "S": [ 78 ],
+            "Y": [ 137, 138, 139 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$168": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:54.18-54.26|/foss/designs/dsld/rtl/alu_core.v:54.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 137, 138, 139 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 82 ],
+            "Y": [ 140, 141, 142 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$171": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:53.18-53.26|/foss/designs/dsld/rtl/alu_core.v:53.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 140, 141, 142 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 86 ],
+            "Y": [ 143, 144, 145 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$174": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:52.18-52.26|/foss/designs/dsld/rtl/alu_core.v:52.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 143, 144, 145 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 90 ],
+            "Y": [ 146, 147, 148 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$177": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:51.18-51.26|/foss/designs/dsld/rtl/alu_core.v:51.9-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 146, 147, 148 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 94 ],
+            "Y": [ 149, 150, 151 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$180": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:54.18-54.26|/foss/designs/dsld/rtl/alu_core.v:54.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 149, 150, 151 ],
+            "B": [ "1", "1", "0" ],
+            "S": [ 82 ],
+            "Y": [ 152, 153, 154 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$183": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:53.18-53.26|/foss/designs/dsld/rtl/alu_core.v:53.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 152, 153, 154 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 86 ],
+            "Y": [ 155, 156, 157 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$186": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:52.18-52.26|/foss/designs/dsld/rtl/alu_core.v:52.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 155, 156, 157 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 90 ],
+            "Y": [ 158, 159, 160 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$189": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:51.18-51.26|/foss/designs/dsld/rtl/alu_core.v:51.9-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 158, 159, 160 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 94 ],
+            "Y": [ 161, 162, 163 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$192": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:53.18-53.26|/foss/designs/dsld/rtl/alu_core.v:53.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 161, 162, 163 ],
+            "B": [ "0", "1", "0" ],
+            "S": [ 86 ],
+            "Y": [ 164, 165, 166 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$195": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:52.18-52.26|/foss/designs/dsld/rtl/alu_core.v:52.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 164, 165, 166 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 90 ],
+            "Y": [ 167, 168, 169 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$198": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:51.18-51.26|/foss/designs/dsld/rtl/alu_core.v:51.9-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 167, 168, 169 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 94 ],
+            "Y": [ 170, 171, 172 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$201": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:52.18-52.26|/foss/designs/dsld/rtl/alu_core.v:52.14-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 170, 171, 172 ],
+            "B": [ "1", "0", "0" ],
+            "S": [ 90 ],
+            "Y": [ 173, 174, 175 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$204": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:51.18-51.26|/foss/designs/dsld/rtl/alu_core.v:51.9-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 173, 174, 175 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 94 ],
+            "Y": [ 176, 177, 178 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$207": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:51.18-51.26|/foss/designs/dsld/rtl/alu_core.v:51.9-59.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 176, 177, 178 ],
+            "B": [ "0", "0", "0" ],
+            "S": [ 94 ],
+            "Y": [ 179, 180, 181 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$67": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:103.18-103.24|/foss/designs/dsld/rtl/alu_core.v:103.14-110.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 28 ],
+            "B": [ 43 ],
+            "S": [ 182 ],
+            "Y": [ 69 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$71": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:103.18-103.24|/foss/designs/dsld/rtl/alu_core.v:103.14-110.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 20, 21, 22, 23, 24, 25, 26, 27 ],
+            "B": [ 94, 90, 86, 82, 78, 74, 70, 183 ],
+            "S": [ 182 ],
+            "Y": [ 61, 62, 63, 64, 65, 66, 67, 68 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$73": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:103.18-103.24|/foss/designs/dsld/rtl/alu_core.v:103.14-110.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 15, 16, 17, 18, 19 ],
+            "B": [ 38, 39, 40, 41, 42 ],
+            "S": [ 182 ],
+            "Y": [ 56, 57, 58, 59, 60 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$75": {
+          "hide_name": 1,
+          "type": "$pmux",
+          "parameters": {
+            "S_WIDTH": "00000000000000000000000000001000",
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:85.33-85.33|/foss/designs/dsld/rtl/alu_core.v:70.9-87.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x" ],
+            "B": [ 48, 49, 50, 51, "0", "0", 4, 5, 6, "0", 5, 6, 7, "0", "0", 184, 185, 186, 187, 188, 29, 30, 31, 32, 33, 189, 190, 191, 192, "0", 52, 53, 54, 55, "0", 34, 35, 36, 37, "0" ],
+            "S": [ 193, 194, 195, 196, 197, 198, 199, 200 ],
+            "Y": [ 38, 39, 40, 41, 42 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$76_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:85.33-85.33|/foss/designs/dsld/rtl/alu_core.v:70.9-87.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 179, 180, 181 ],
+            "B": [ "1", "1", "1" ],
+            "Y": [ 193 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$77_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:84.33-84.33|/foss/designs/dsld/rtl/alu_core.v:70.9-87.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 179, 180, 181 ],
+            "B": [ "0", "1", "1" ],
+            "Y": [ 194 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$78_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:83.16-83.16|/foss/designs/dsld/rtl/alu_core.v:70.9-87.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 179, 180, 181 ],
+            "B": [ "1", "0", "1" ],
+            "Y": [ 195 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$79_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:78.16-78.16|/foss/designs/dsld/rtl/alu_core.v:70.9-87.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 179, 180, 181 ],
+            "B": [ "0", "0", "1" ],
+            "Y": [ 196 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$80_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:73.33-73.33|/foss/designs/dsld/rtl/alu_core.v:70.9-87.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 179, 180, 181 ],
+            "B": [ "1", "1", "0" ],
+            "Y": [ 197 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$81_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:72.32-72.32|/foss/designs/dsld/rtl/alu_core.v:70.9-87.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 179, 180, 181 ],
+            "B": [ "0", "1", "0" ],
+            "Y": [ 198 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$82_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:71.33-71.33|/foss/designs/dsld/rtl/alu_core.v:70.9-87.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 179, 180, 181 ],
+            "B": [ "1", "0", "0" ],
+            "Y": [ 199 ]
+          }
+        },
+        "$flatten\\u_alu.$procmux$83_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:70.19-70.19|/foss/designs/dsld/rtl/alu_core.v:70.9-87.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 179, 180, 181 ],
+            "Y": [ 200 ]
+          }
+        },
+        "$flatten\\u_alu.$sub$/foss/designs/dsld/rtl/alu_core.v:41$10": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000101",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000101",
+            "Y_WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:41.25-41.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 5, 6, 7, "0" ],
+            "B": [ 8, 9, 10, 11, "0" ],
+            "Y": [ 184, 185, 186, 187, 188 ]
+          }
+        },
+        "$flatten\\u_alu.$xor$/foss/designs/dsld/rtl/alu_core.v:38$6": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:38.33-38.38"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 5, 6, 7 ],
+            "B": [ 8, 9, 10, 11 ],
+            "Y": [ 189, 190, 191, 192 ]
+          }
+        },
+        "$flatten\\u_alu.$xor$/foss/designs/dsld/rtl/alu_core.v:39$7": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:39.34-39.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 5, 6, 7 ],
+            "B": [ 8, 9, 10, 11 ],
+            "Y": [ 44, 45, 46, 47 ]
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$55": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ 94 ],
+            "Y": [ 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232 ]
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$56": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232 ],
+            "B": [ 90 ],
+            "Y": [ 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264 ]
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$57": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264 ],
+            "B": [ 86 ],
+            "Y": [ 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296 ]
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$58": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296 ],
+            "B": [ 82 ],
+            "Y": [ 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328 ]
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$59": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328 ],
+            "B": [ 78 ],
+            "Y": [ 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360 ]
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$60": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360 ],
+            "B": [ 74 ],
+            "Y": [ 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392 ]
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$61": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392 ],
+            "B": [ 70 ],
+            "Y": [ 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424 ]
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$62": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424 ],
+            "B": [ 183 ],
+            "Y": [ 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456 ]
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:56$29": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:56.31-56.62"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 94, 90, 86, 82, 78, 74, 70, 183 ],
+            "B": [ "1", "0", "0", "0", "0", "0", "0", "0" ],
+            "Y": [ 457, 458, 459, 460, 461, 462, 463, 464 ]
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:57$31": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:57.32-57.66"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 465, 466, 467, 468, 469, 470, 471, 472 ],
+            "B": [ "1", "0", "0", "0", "0", "0", "0", "0" ],
+            "Y": [ 473, 474, 475, 476, 477, 478, 479, 480 ]
+          }
+        },
+        "$flatten\\u_counter.$and$/foss/designs/dsld/rtl/hybrid_ring_counter.v:59$32": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:59.25-59.45"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 94, 90, 86, 82, 78, 74, 70, 183 ],
+            "B": [ 457, 458, 459, 460, 461, 462, 463, 464 ],
+            "Y": [ 481, 482, 483, 484, 485, 486, 487, 488 ]
+          }
+        },
+        "$flatten\\u_counter.$and$/foss/designs/dsld/rtl/hybrid_ring_counter.v:60$35": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:60.25-60.76"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 473, 474, 475, 476, 477, 478, 479, 480 ],
+            "B": [ 489, 490, 491, 492, 493, 494, 495, 496 ],
+            "Y": [ 497, 498, 499, 500, 501, 502, 503, 504 ]
+          }
+        },
+        "$flatten\\u_counter.$eq$/foss/designs/dsld/rtl/hybrid_ring_counter.v:46$28": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000001",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000001",
+            "B_WIDTH": "00000000000000000000000000100000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:46.25-46.47"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456 ],
+            "B": [ "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "Y": [ 505 ]
+          }
+        },
+        "$flatten\\u_counter.$eq$/foss/designs/dsld/rtl/hybrid_ring_counter.v:59$33": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:59.24-59.59"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 481, 482, 483, 484, 485, 486, 487, 488 ],
+            "Y": [ 506 ]
+          }
+        },
+        "$flatten\\u_counter.$eq$/foss/designs/dsld/rtl/hybrid_ring_counter.v:60$36": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:60.24-60.90"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 497, 498, 499, 500, 501, 502, 503, 504 ],
+            "Y": [ 507 ]
+          }
+        },
+        "$flatten\\u_counter.$eq$/foss/designs/dsld/rtl/hybrid_ring_counter.v:62$38": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:62.21-62.34"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 12, 13 ],
+            "Y": [ 508 ]
+          }
+        },
+        "$flatten\\u_counter.$eq$/foss/designs/dsld/rtl/hybrid_ring_counter.v:63$39": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:63.21-63.34"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 12, 13 ],
+            "B": [ "1", "0" ],
+            "Y": [ 509 ]
+          }
+        },
+        "$flatten\\u_counter.$eq$/foss/designs/dsld/rtl/hybrid_ring_counter.v:76$44": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:76.29-76.42"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 12, 13 ],
+            "B": [ "1", "0" ],
+            "Y": [ 510 ]
+          }
+        },
+        "$flatten\\u_counter.$logic_or$/foss/designs/dsld/rtl/hybrid_ring_counter.v:59$37": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:59.23-60.91"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 506 ],
+            "B": [ 507 ],
+            "Y": [ 511 ]
+          }
+        },
+        "$flatten\\u_counter.$not$/foss/designs/dsld/rtl/hybrid_ring_counter.v:57$30": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:57.33-57.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 94, 90, 86, 82, 78, 74, 70, 183 ],
+            "Y": [ 465, 466, 467, 468, 469, 470, 471, 472 ]
+          }
+        },
+        "$flatten\\u_counter.$not$/foss/designs/dsld/rtl/hybrid_ring_counter.v:85$47": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:85.43-85.54"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 94 ],
+            "Y": [ 512 ]
+          }
+        },
+        "$flatten\\u_counter.$procdff$277": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "00000000000000000000000000000000",
+            "ARST_VALUE": "00000001",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:91.5-100.8"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 513, 514, 515, 516, 517, 518, 519, 520 ],
+            "Q": [ 94, 90, 86, 82, 78, 74, 70, 183 ]
+          }
+        },
+        "$flatten\\u_counter.$procmux$211": {
+          "hide_name": 1,
+          "type": "$pmux",
+          "parameters": {
+            "S_WIDTH": "00000000000000000000000000000010",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:84.47-84.47|/foss/designs/dsld/rtl/hybrid_ring_counter.v:83.13-87.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "0", "0", "0", "0", "0", "0", "1" ],
+            "B": [ 90, 86, 82, 78, 74, 70, 183, 512, 183, 94, 90, 86, 82, 78, 74, 70 ],
+            "S": [ 521, 522 ],
+            "Y": [ 523, 524, 525, 526, 527, 528, 529, 530 ]
+          }
+        },
+        "$flatten\\u_counter.$procmux$212_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:84.47-84.47|/foss/designs/dsld/rtl/hybrid_ring_counter.v:83.13-87.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 12, 13 ],
+            "B": [ "1", "0" ],
+            "Y": [ 521 ]
+          }
+        },
+        "$flatten\\u_counter.$procmux$213_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:83.24-83.24|/foss/designs/dsld/rtl/hybrid_ring_counter.v:83.13-87.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 12, 13 ],
+            "Y": [ 522 ]
+          }
+        },
+        "$flatten\\u_counter.$procmux$214": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:82.18-82.23|/foss/designs/dsld/rtl/hybrid_ring_counter.v:82.14-88.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 523, 524, 525, 526, 527, 528, 529, 530 ],
+            "B": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "S": [ 14 ],
+            "Y": [ 531, 532, 533, 534, 535, 536, 537, 538 ]
+          }
+        },
+        "$flatten\\u_counter.$procmux$217": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:79.18-79.22|/foss/designs/dsld/rtl/hybrid_ring_counter.v:79.14-88.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 531, 532, 533, 534, 535, 536, 537, 538 ],
+            "B": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "S": [ "0" ],
+            "Y": [ 539, 540, 541, 542, 543, 544, 545, 546 ]
+          }
+        },
+        "$flatten\\u_counter.$procmux$220": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:75.13-75.19|/foss/designs/dsld/rtl/hybrid_ring_counter.v:75.9-88.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "B": [ 539, 540, 541, 542, 543, 544, 545, 546 ],
+            "S": [ 547 ],
+            "Y": [ 548, 549, 550, 551, 552, 553, 554, 555 ]
+          }
+        },
+        "$flatten\\u_counter.$procmux$223": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:82.18-82.23|/foss/designs/dsld/rtl/hybrid_ring_counter.v:82.14-88.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 548, 549, 550, 551, 552, 553, 554, 555 ],
+            "B": [ 94, 90, 86, 82, 78, 74, 70, 183 ],
+            "S": [ 14 ],
+            "Y": [ 556, 557, 558, 559, 560, 561, 562, 563 ]
+          }
+        },
+        "$flatten\\u_counter.$procmux$226": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:79.18-79.22|/foss/designs/dsld/rtl/hybrid_ring_counter.v:79.14-88.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 556, 557, 558, 559, 560, 561, 562, 563 ],
+            "B": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "S": [ "0" ],
+            "Y": [ 564, 565, 566, 567, 568, 569, 570, 571 ]
+          }
+        },
+        "$flatten\\u_counter.$procmux$229": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:75.13-75.19|/foss/designs/dsld/rtl/hybrid_ring_counter.v:75.9-88.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "B": [ 564, 565, 566, 567, 568, 569, 570, 571 ],
+            "S": [ 547 ],
+            "Y": [ 572, 573, 574, 575, 576, 577, 578, 579 ]
+          }
+        },
+        "$flatten\\u_counter.$procmux$232": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:79.18-79.22|/foss/designs/dsld/rtl/hybrid_ring_counter.v:79.14-88.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 572, 573, 574, 575, 576, 577, 578, 579 ],
+            "B": [ "1", "0", "0", "0", "0", "0", "0", "1" ],
+            "S": [ "0" ],
+            "Y": [ 580, 581, 582, 583, 584, 585, 586, 587 ]
+          }
+        },
+        "$flatten\\u_counter.$procmux$235": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:75.13-75.19|/foss/designs/dsld/rtl/hybrid_ring_counter.v:75.9-88.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "B": [ 580, 581, 582, 583, 584, 585, 586, 587 ],
+            "S": [ 547 ],
+            "Y": [ 588, 589, 590, 591, 592, 593, 594, 595 ]
+          }
+        },
+        "$flatten\\u_counter.$procmux$241": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:75.13-75.19|/foss/designs/dsld/rtl/hybrid_ring_counter.v:75.9-88.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 596, 597, 598, 599, 600, 601, 602, 603 ],
+            "B": [ 588, 589, 590, 591, 592, 593, 594, 595 ],
+            "S": [ 547 ],
+            "Y": [ 513, 514, 515, 516, 517, 518, 519, 520 ]
+          }
+        },
+        "$flatten\\u_counter.$sub$/foss/designs/dsld/rtl/hybrid_ring_counter.v:60$34": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:60.40-60.75"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 473, 474, 475, 476, 477, 478, 479, 480 ],
+            "B": [ "1", "0", "0", "0", "0", "0", "0", "0" ],
+            "Y": [ 489, 490, 491, 492, 493, 494, 495, 496 ]
+          }
+        },
+        "$flatten\\u_counter.$ternary$/foss/designs/dsld/rtl/hybrid_ring_counter.v:62$41": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:62.20-63.56"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 604 ],
+            "B": [ 505 ],
+            "S": [ 508 ],
+            "Y": [ 547 ]
+          }
+        },
+        "$flatten\\u_counter.$ternary$/foss/designs/dsld/rtl/hybrid_ring_counter.v:63$40": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:63.20-63.56"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "B": [ 511 ],
+            "S": [ 509 ],
+            "Y": [ 604 ]
+          }
+        },
+        "$flatten\\u_counter.$ternary$/foss/designs/dsld/rtl/hybrid_ring_counter.v:76$45": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:76.28-76.74"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ "1", "1", "1", "1", "1", "1", "1", "0" ],
+            "S": [ 510 ],
+            "Y": [ 596, 597, 598, 599, 600, 601, 602, 603 ]
+          }
+        },
+        "$logic_and$/foss/designs/dsld/rtl/alu_top.v:47$3": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:47.13-47.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 547 ],
+            "B": [ 605 ],
+            "Y": [ 182 ]
+          }
+        },
+        "$logic_not$/foss/designs/dsld/rtl/alu_top.v:47$2": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:47.30-47.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 14 ],
+            "Y": [ 605 ]
+          }
+        }
+      },
+      "netnames": {
+        "$flatten\\u_alu.$0\\flag_zero[0:0]": {
+          "hide_name": 1,
+          "bits": [ 69 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:94.5-111.8"
+          }
+        },
+        "$flatten\\u_alu.$0\\op_mask[7:0]": {
+          "hide_name": 1,
+          "bits": [ 61, 62, 63, 64, 65, 66, 67, 68 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:94.5-111.8"
+          }
+        },
+        "$flatten\\u_alu.$0\\result[4:0]": {
+          "hide_name": 1,
+          "bits": [ 56, 57, 58, 59, 60 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:94.5-111.8"
+          }
+        },
+        "$flatten\\u_alu.$2\\sel[2:0]": {
+          "hide_name": 1,
+          "bits": [ 176, 177, 178 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:50.5-60.8"
+          }
+        },
+        "$flatten\\u_alu.$3\\sel[2:0]": {
+          "hide_name": 1,
+          "bits": [ 170, 171, 172 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:50.5-60.8"
+          }
+        },
+        "$flatten\\u_alu.$4\\sel[2:0]": {
+          "hide_name": 1,
+          "bits": [ 161, 162, 163 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:50.5-60.8"
+          }
+        },
+        "$flatten\\u_alu.$5\\sel[2:0]": {
+          "hide_name": 1,
+          "bits": [ 149, 150, 151 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:50.5-60.8"
+          }
+        },
+        "$flatten\\u_alu.$6\\sel[2:0]": {
+          "hide_name": 1,
+          "bits": [ 134, 135, 136 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:50.5-60.8"
+          }
+        },
+        "$flatten\\u_alu.$7\\sel[2:0]": {
+          "hide_name": 1,
+          "bits": [ 116, 117, 118 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:50.5-60.8"
+          }
+        },
+        "$flatten\\u_alu.$8\\sel[2:0]": {
+          "hide_name": 1,
+          "bits": [ 95, 96, 97 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:50.5-60.8"
+          }
+        },
+        "$flatten\\u_alu.$eq$/foss/designs/dsld/rtl/alu_core.v:109$24_Y": {
+          "hide_name": 1,
+          "bits": [ 43 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:109.31-109.51"
+          }
+        },
+        "$flatten\\u_alu.$procmux$105_Y": {
+          "hide_name": 1,
+          "bits": [ 71, 72, 73 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$108_Y": {
+          "hide_name": 1,
+          "bits": [ 75, 76, 77 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$111_Y": {
+          "hide_name": 1,
+          "bits": [ 79, 80, 81 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$114_Y": {
+          "hide_name": 1,
+          "bits": [ 83, 84, 85 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$117_Y": {
+          "hide_name": 1,
+          "bits": [ 87, 88, 89 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$120_Y": {
+          "hide_name": 1,
+          "bits": [ 91, 92, 93 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$126_Y": {
+          "hide_name": 1,
+          "bits": [ 98, 99, 100 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$129_Y": {
+          "hide_name": 1,
+          "bits": [ 101, 102, 103 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$132_Y": {
+          "hide_name": 1,
+          "bits": [ 104, 105, 106 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$135_Y": {
+          "hide_name": 1,
+          "bits": [ 107, 108, 109 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$138_Y": {
+          "hide_name": 1,
+          "bits": [ 110, 111, 112 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$141_Y": {
+          "hide_name": 1,
+          "bits": [ 113, 114, 115 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$147_Y": {
+          "hide_name": 1,
+          "bits": [ 119, 120, 121 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$150_Y": {
+          "hide_name": 1,
+          "bits": [ 122, 123, 124 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$153_Y": {
+          "hide_name": 1,
+          "bits": [ 125, 126, 127 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$156_Y": {
+          "hide_name": 1,
+          "bits": [ 128, 129, 130 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$159_Y": {
+          "hide_name": 1,
+          "bits": [ 131, 132, 133 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$165_Y": {
+          "hide_name": 1,
+          "bits": [ 137, 138, 139 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$168_Y": {
+          "hide_name": 1,
+          "bits": [ 140, 141, 142 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$171_Y": {
+          "hide_name": 1,
+          "bits": [ 143, 144, 145 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$174_Y": {
+          "hide_name": 1,
+          "bits": [ 146, 147, 148 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$180_Y": {
+          "hide_name": 1,
+          "bits": [ 152, 153, 154 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$183_Y": {
+          "hide_name": 1,
+          "bits": [ 155, 156, 157 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$186_Y": {
+          "hide_name": 1,
+          "bits": [ 158, 159, 160 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$192_Y": {
+          "hide_name": 1,
+          "bits": [ 164, 165, 166 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$195_Y": {
+          "hide_name": 1,
+          "bits": [ 167, 168, 169 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$201_Y": {
+          "hide_name": 1,
+          "bits": [ 173, 174, 175 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$76_CMP": {
+          "hide_name": 1,
+          "bits": [ 193 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$77_CMP": {
+          "hide_name": 1,
+          "bits": [ 194 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$78_CMP": {
+          "hide_name": 1,
+          "bits": [ 195 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$79_CMP": {
+          "hide_name": 1,
+          "bits": [ 196 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$80_CMP": {
+          "hide_name": 1,
+          "bits": [ 197 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$81_CMP": {
+          "hide_name": 1,
+          "bits": [ 198 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$82_CMP": {
+          "hide_name": 1,
+          "bits": [ 199 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$procmux$83_CMP": {
+          "hide_name": 1,
+          "bits": [ 200 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_alu.$xor$/foss/designs/dsld/rtl/alu_core.v:39$7_Y": {
+          "hide_name": 1,
+          "bits": [ 44, 45, 46, 47 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_core.v:39.34-39.39"
+          }
+        },
+        "$flatten\\u_counter.$2\\next_pattern[7:0]": {
+          "hide_name": 1,
+          "bits": [ 588, 589, 590, 591, 592, 593, 594, 595 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:71.5-89.8"
+          }
+        },
+        "$flatten\\u_counter.$3\\next_pattern[7:0]": {
+          "hide_name": 1,
+          "bits": [ 572, 573, 574, 575, 576, 577, 578, 579 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:71.5-89.8"
+          }
+        },
+        "$flatten\\u_counter.$4\\next_pattern[7:0]": {
+          "hide_name": 1,
+          "bits": [ 548, 549, 550, 551, 552, 553, 554, 555 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:71.5-89.8"
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$55_Y": {
+          "hide_name": 1,
+          "bits": [ 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$56_Y": {
+          "hide_name": 1,
+          "bits": [ 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$57_Y": {
+          "hide_name": 1,
+          "bits": [ 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$58_Y": {
+          "hide_name": 1,
+          "bits": [ 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$59_Y": {
+          "hide_name": 1,
+          "bits": [ 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$60_Y": {
+          "hide_name": 1,
+          "bits": [ 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          }
+        },
+        "$flatten\\u_counter.$add$/foss/designs/dsld/rtl/hybrid_ring_counter.v:38$61_Y": {
+          "hide_name": 1,
+          "bits": [ 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:38.28-38.43"
+          }
+        },
+        "$flatten\\u_counter.$and$/foss/designs/dsld/rtl/hybrid_ring_counter.v:59$32_Y": {
+          "hide_name": 1,
+          "bits": [ 481, 482, 483, 484, 485, 486, 487, 488 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:59.25-59.45"
+          }
+        },
+        "$flatten\\u_counter.$and$/foss/designs/dsld/rtl/hybrid_ring_counter.v:60$35_Y": {
+          "hide_name": 1,
+          "bits": [ 497, 498, 499, 500, 501, 502, 503, 504 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:60.25-60.76"
+          }
+        },
+        "$flatten\\u_counter.$eq$/foss/designs/dsld/rtl/hybrid_ring_counter.v:59$33_Y": {
+          "hide_name": 1,
+          "bits": [ 506 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:59.24-59.59"
+          }
+        },
+        "$flatten\\u_counter.$eq$/foss/designs/dsld/rtl/hybrid_ring_counter.v:60$36_Y": {
+          "hide_name": 1,
+          "bits": [ 507 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:60.24-60.90"
+          }
+        },
+        "$flatten\\u_counter.$eq$/foss/designs/dsld/rtl/hybrid_ring_counter.v:62$38_Y": {
+          "hide_name": 1,
+          "bits": [ 508 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:62.21-62.34"
+          }
+        },
+        "$flatten\\u_counter.$eq$/foss/designs/dsld/rtl/hybrid_ring_counter.v:63$39_Y": {
+          "hide_name": 1,
+          "bits": [ 509 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:63.21-63.34"
+          }
+        },
+        "$flatten\\u_counter.$eq$/foss/designs/dsld/rtl/hybrid_ring_counter.v:76$44_Y": {
+          "hide_name": 1,
+          "bits": [ 510 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:76.29-76.42"
+          }
+        },
+        "$flatten\\u_counter.$not$/foss/designs/dsld/rtl/hybrid_ring_counter.v:57$30_Y": {
+          "hide_name": 1,
+          "bits": [ 465, 466, 467, 468, 469, 470, 471, 472 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:57.33-57.41"
+          }
+        },
+        "$flatten\\u_counter.$not$/foss/designs/dsld/rtl/hybrid_ring_counter.v:85$47_Y": {
+          "hide_name": 1,
+          "bits": [ 512 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:85.43-85.54"
+          }
+        },
+        "$flatten\\u_counter.$procmux$211_Y": {
+          "hide_name": 1,
+          "bits": [ 523, 524, 525, 526, 527, 528, 529, 530 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_counter.$procmux$212_CMP": {
+          "hide_name": 1,
+          "bits": [ 521 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_counter.$procmux$213_CMP": {
+          "hide_name": 1,
+          "bits": [ 522 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_counter.$procmux$214_Y": {
+          "hide_name": 1,
+          "bits": [ 531, 532, 533, 534, 535, 536, 537, 538 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_counter.$procmux$217_Y": {
+          "hide_name": 1,
+          "bits": [ 539, 540, 541, 542, 543, 544, 545, 546 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_counter.$procmux$223_Y": {
+          "hide_name": 1,
+          "bits": [ 556, 557, 558, 559, 560, 561, 562, 563 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_counter.$procmux$226_Y": {
+          "hide_name": 1,
+          "bits": [ 564, 565, 566, 567, 568, 569, 570, 571 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_counter.$procmux$232_Y": {
+          "hide_name": 1,
+          "bits": [ 580, 581, 582, 583, 584, 585, 586, 587 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\u_counter.$sub$/foss/designs/dsld/rtl/hybrid_ring_counter.v:60$34_Y": {
+          "hide_name": 1,
+          "bits": [ 489, 490, 491, 492, 493, 494, 495, 496 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:60.40-60.75"
+          }
+        },
+        "$flatten\\u_counter.$ternary$/foss/designs/dsld/rtl/hybrid_ring_counter.v:63$40_Y": {
+          "hide_name": 1,
+          "bits": [ 604 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:63.20-63.56"
+          }
+        },
+        "$flatten\\u_counter.$ternary$/foss/designs/dsld/rtl/hybrid_ring_counter.v:76$45_Y": {
+          "hide_name": 1,
+          "bits": [ 596, 597, 598, 599, 600, 601, 602, 603 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:76.28-76.74"
+          }
+        },
+        "$logic_not$/foss/designs/dsld/rtl/alu_top.v:47$2_Y": {
+          "hide_name": 1,
+          "bits": [ 605 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:47.30-47.35"
+          }
+        },
+        "a": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6, 7 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:13.24-13.25"
+          }
+        },
+        "b": {
+          "hide_name": 0,
+          "bits": [ 8, 9, 10, 11 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:14.24-14.25"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:11.24-11.27"
+          }
+        },
+        "halt": {
+          "hide_name": 0,
+          "bits": [ 14 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:16.24-16.28"
+          }
+        },
+        "mode": {
+          "hide_name": 0,
+          "bits": [ 12, 13 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:15.24-15.28"
+          }
+        },
+        "op_mask": {
+          "hide_name": 0,
+          "bits": [ 20, 21, 22, 23, 24, 25, 26, 27 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:18.24-18.31"
+          }
+        },
+        "pattern": {
+          "hide_name": 0,
+          "bits": [ 94, 90, 86, 82, 78, 74, 70, 183 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:23.14-23.21"
+          }
+        },
+        "pattern_valid": {
+          "hide_name": 0,
+          "bits": [ 547 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:24.14-24.27"
+          }
+        },
+        "result": {
+          "hide_name": 0,
+          "bits": [ 15, 16, 17, 18, 19 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:17.24-17.30"
+          }
+        },
+        "rst_n": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:12.24-12.29"
+          }
+        },
+        "u_alu.out_en": {
+          "hide_name": 0,
+          "bits": [ 182 ],
+          "attributes": {
+            "hdlname": "u_alu out_en",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:22.27-22.33"
+          }
+        },
+        "u_alu.r_add": {
+          "hide_name": 0,
+          "bits": [ 29, 30, 31, 32, 33 ],
+          "attributes": {
+            "hdlname": "u_alu r_add",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:40.16-40.21"
+          }
+        },
+        "u_alu.r_and": {
+          "hide_name": 0,
+          "bits": [ 34, 35, 36, 37, "0" ],
+          "attributes": {
+            "hdlname": "u_alu r_and",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:36.16-36.21"
+          }
+        },
+        "u_alu.r_or": {
+          "hide_name": 0,
+          "bits": [ 52, 53, 54, 55, "0" ],
+          "attributes": {
+            "hdlname": "u_alu r_or",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:37.16-37.20"
+          }
+        },
+        "u_alu.r_sub": {
+          "hide_name": 0,
+          "bits": [ 184, 185, 186, 187, 188 ],
+          "attributes": {
+            "hdlname": "u_alu r_sub",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:41.16-41.21"
+          }
+        },
+        "u_alu.r_xnor": {
+          "hide_name": 0,
+          "bits": [ 48, 49, 50, 51, "0" ],
+          "attributes": {
+            "hdlname": "u_alu r_xnor",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:39.16-39.22"
+          }
+        },
+        "u_alu.r_xor": {
+          "hide_name": 0,
+          "bits": [ 189, 190, 191, 192, "0" ],
+          "attributes": {
+            "hdlname": "u_alu r_xor",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:38.16-38.21"
+          }
+        },
+        "u_alu.res_n": {
+          "hide_name": 0,
+          "bits": [ 38, 39, 40, 41, 42 ],
+          "attributes": {
+            "hdlname": "u_alu res_n",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:62.15-62.20"
+          }
+        },
+        "u_alu.sel": {
+          "hide_name": 0,
+          "bits": [ 179, 180, 181 ],
+          "attributes": {
+            "hdlname": "u_alu sel",
+            "src": "/foss/designs/dsld/rtl/alu_core.v:49.15-49.18"
+          }
+        },
+        "u_counter.neg_pattern": {
+          "hide_name": 0,
+          "bits": [ 473, 474, 475, 476, 477, 478, 479, 480 ],
+          "attributes": {
+            "hdlname": "u_counter neg_pattern",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:57.18-57.29"
+          }
+        },
+        "u_counter.next_pattern": {
+          "hide_name": 0,
+          "bits": [ 513, 514, 515, 516, 517, 518, 519, 520 ],
+          "attributes": {
+            "hdlname": "u_counter next_pattern",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:68.17-68.29"
+          }
+        },
+        "u_counter.p_plus_one": {
+          "hide_name": 0,
+          "bits": [ 457, 458, 459, 460, 461, 462, 463, 464 ],
+          "attributes": {
+            "hdlname": "u_counter p_plus_one",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:56.18-56.28"
+          }
+        },
+        "u_counter.popcount$func$/foss/designs/dsld/rtl/hybrid_ring_counter.v:46$25.$result": {
+          "hide_name": 0,
+          "bits": [ 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456 ],
+          "signed": 1,
+          "attributes": {
+            "hdlname": "u_counter popcount$func$/foss/designs/dsld/rtl/hybrid_ring_counter.v:46$25.$result",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:32.30-32.30"
+          }
+        },
+        "u_counter.straight_ok": {
+          "hide_name": 0,
+          "bits": [ 505 ],
+          "attributes": {
+            "hdlname": "u_counter straight_ok",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:46.10-46.21"
+          }
+        },
+        "u_counter.twisted_ok": {
+          "hide_name": 0,
+          "bits": [ 511 ],
+          "attributes": {
+            "hdlname": "u_counter twisted_ok",
+            "src": "/foss/designs/dsld/rtl/hybrid_ring_counter.v:59.10-59.20"
+          }
+        },
+        "zero": {
+          "hide_name": 0,
+          "bits": [ 28 ],
+          "attributes": {
+            "src": "/foss/designs/dsld/rtl/alu_top.v:19.24-19.28"
+          }
+        }
+      }
+    }
+  }
+}
