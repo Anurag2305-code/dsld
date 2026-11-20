@@ -1,0 +1,432 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.71+50 (git sha1 583f380c6, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: ../../counter_formal.v
+Parsing formal SystemVerilog input from `../../counter_formal.v' to AST representation.
+Storing AST representation for module `$abstract\counter_formal'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: ../../../rtl/hybrid_ring_counter.v
+Parsing formal SystemVerilog input from `../../../rtl/hybrid_ring_counter.v' to AST representation.
+Storing AST representation for module `$abstract\hybrid_ring_counter'.
+Successfully finished Verilog frontend.
+Parameter \MODE = 2
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\counter_formal'.
+Parameter \MODE = 2
+Generating RTLIL representation for module `$paramod\counter_formal\MODE=s32'00000000000000000000000000000010'.
+
+4. Executing PREP pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.2. Executing AST frontend in derive mode using pre-parsed AST for module `\counter_formal'.
+Generating RTLIL representation for module `\counter_formal'.
+
+4.2.1. Analyzing design hierarchy..
+Top module:  \counter_formal
+Parameter \N = 8
+
+4.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\hybrid_ring_counter'.
+Parameter \N = 8
+Generating RTLIL representation for module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+
+4.2.3. Analyzing design hierarchy..
+Top module:  \counter_formal
+Used module:     $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+4.2.4. Analyzing design hierarchy..
+Top module:  \counter_formal
+Used module:     $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+Removing unused module `$abstract\hybrid_ring_counter'.
+Removing unused module `$abstract\counter_formal'.
+Removed 2 unused modules.
+Module counter_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+4.3. Executing PROC pass (convert processes to netlists).
+
+4.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\counter_formal.$../../counter_formal.v:54$proc$14'.
+Cleaned up 2 empty switches.
+
+4.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $../../../rtl/hybrid_ring_counter.v:91$proc$47 in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Marked 4 switch rules as full_case in process $../../../rtl/hybrid_ring_counter.v:71$proc$41 in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Marked 1 switch rules as full_case in process $../../counter_formal.v:54$proc$14 in module counter_formal.
+Removed a total of 0 dead cases.
+
+4.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 15 assignments to connections.
+
+4.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\counter_formal.$../../counter_formal.v:38$proc$23'.
+  Set init value: \past = 1'0
+  Set init value: \prev_valid = 1'1
+  Set init value: \prev_halt = 1'0
+  Set init value: \prev_pattern = 8'00000000
+
+4.3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:91$proc$47'.
+
+4.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~7 debug messages>
+
+4.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:46$proc$49'.
+Creating decoders for process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:91$proc$47'.
+     1/2: $0\recovered[0:0]
+     2/2: $0\pattern[7:0]
+Creating decoders for process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:71$proc$41'.
+     1/5: $4\next_pattern[7:0]
+     2/5: $3\next_pattern[7:0]
+     3/5: $2\next_pattern[7:0]
+     4/5: $1\do_recover[0:0]
+     5/5: $1\next_pattern[7:0]
+Creating decoders for process `\counter_formal.$../../counter_formal.v:38$proc$23'.
+Creating decoders for process `\counter_formal.$../../counter_formal.v:25$proc$22'.
+Creating decoders for process `\counter_formal.$../../counter_formal.v:54$proc$14'.
+     1/5: $../../counter_formal.v:76$assert$21_EN
+     2/5: $../../counter_formal.v:75$assert$19_EN
+     3/5: $../../counter_formal.v:74$assert$18_EN
+     4/5: $../../counter_formal.v:61$assert$16_EN
+     5/5: $../../counter_formal.v:58$assert$15_EN
+Creating decoders for process `\counter_formal.$../../counter_formal.v:45$proc$13'.
+
+4.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\popcount$func$../../../rtl/hybrid_ring_counter.v:46$24.$result' from process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:46$proc$49'.
+No latch inferred for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\next_pattern' from process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:71$proc$41'.
+No latch inferred for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\do_recover' from process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:71$proc$41'.
+No latch inferred for signal `\counter_formal.\rst_n' from process `\counter_formal.$../../counter_formal.v:25$proc$22'.
+
+4.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\pattern' using process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:91$proc$47'.
+  created $adff cell `$procdff$127' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\recovered' using process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:91$proc$47'.
+  created $adff cell `$procdff$132' with positive edge clock and positive level reset.
+Creating register for signal `\counter_formal.\past' using process `\counter_formal.$../../counter_formal.v:45$proc$13'.
+  created $dff cell `$procdff$133' with positive edge clock.
+Creating register for signal `\counter_formal.\prev_valid' using process `\counter_formal.$../../counter_formal.v:45$proc$13'.
+  created $dff cell `$procdff$134' with positive edge clock.
+Creating register for signal `\counter_formal.\prev_halt' using process `\counter_formal.$../../counter_formal.v:45$proc$13'.
+  created $dff cell `$procdff$135' with positive edge clock.
+Creating register for signal `\counter_formal.\prev_pattern' using process `\counter_formal.$../../counter_formal.v:45$proc$13'.
+  created $dff cell `$procdff$136' with positive edge clock.
+
+4.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:46$proc$49'.
+Removing empty process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:91$proc$47'.
+Found and cleaned up 4 empty switches in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:71$proc$41'.
+Removing empty process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:71$proc$41'.
+Removing empty process `counter_formal.$../../counter_formal.v:38$proc$23'.
+Removing empty process `counter_formal.$../../counter_formal.v:25$proc$22'.
+Found and cleaned up 3 empty switches in `\counter_formal.$../../counter_formal.v:54$proc$14'.
+Removing empty process `counter_formal.$../../counter_formal.v:54$proc$14'.
+Removing empty process `counter_formal.$../../counter_formal.v:45$proc$13'.
+Cleaned up 7 empty switches.
+
+4.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+<suppressed ~15 debug messages>
+Optimizing module counter_formal.
+
+4.4. Executing FUTURE pass.
+
+4.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module counter_formal.
+
+4.6. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000...
+Checking module counter_formal...
+Warning: Wire counter_formal.\halt is used but has no driver.
+Found and reported 1 problems.
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module \counter_formal..
+Removed 6 unused cells and 66 unused wires.
+<suppressed ~9 debug messages>
+
+4.8. Executing OPT pass (performing simple optimizations).
+
+4.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module counter_formal.
+
+4.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 40 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 37 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+<suppressed ~9 debug messages>
+Finding identical cells in module `\counter_formal'.
+Computing hashes of 23 cells of `\counter_formal'.
+Finding duplicate cells in `\counter_formal'.
+Removed a total of 3 cells.
+
+4.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$79.
+    dead port 2/2 on $mux $procmux$73.
+    dead port 1/2 on $mux $procmux$70.
+    dead port 1/2 on $mux $procmux$67.
+    dead port 2/2 on $mux $procmux$88.
+    dead port 2/2 on $mux $procmux$82.
+Running muxtree optimizer on module \counter_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 6 multiplexer ports.
+<suppressed ~33 debug messages>
+
+4.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+  Optimizing cells in module \counter_formal.
+Performed a total of 0 changes.
+
+4.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 31 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `\counter_formal'.
+Computing hashes of 23 cells of `\counter_formal'.
+Finding duplicate cells in `\counter_formal'.
+Computing hashes of 21 cells of `\counter_formal'.
+Finding duplicate cells in `\counter_formal'.
+Computing hashes of 19 cells of `\counter_formal'.
+Finding duplicate cells in `\counter_formal'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+4.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module \counter_formal..
+Removed 0 unused cells and 13 unused wires.
+<suppressed ~2 debug messages>
+
+4.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module counter_formal.
+
+4.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \counter_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~21 debug messages>
+
+4.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+  Optimizing cells in module \counter_formal.
+Performed a total of 0 changes.
+
+4.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 31 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `\counter_formal'.
+Computing hashes of 19 cells of `\counter_formal'.
+Finding duplicate cells in `\counter_formal'.
+Removed a total of 0 cells.
+
+4.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module \counter_formal..
+
+4.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module counter_formal.
+
+4.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+4.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from port B of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:46$eq$27 ($eq).
+Removed top 7 bits (of 8) from port B of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:56$add$28 ($add).
+Removed top 7 bits (of 8) from port B of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:57$add$30 ($add).
+Removed top 7 bits (of 8) from port B of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:60$sub$33 ($sub).
+Removed top 1 bits (of 8) from mux cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:76$ternary$44 ($mux).
+Removed top 31 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$54 ($add).
+Removed top 30 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$54 ($add).
+Removed top 30 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$55 ($add).
+Removed top 29 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$55 ($add).
+Removed top 29 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$56 ($add).
+Removed top 28 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$56 ($add).
+Removed top 28 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$57 ($add).
+Removed top 27 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$57 ($add).
+Removed top 27 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$58 ($add).
+Removed top 26 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$58 ($add).
+Removed top 26 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$59 ($add).
+Removed top 25 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$59 ($add).
+Removed top 25 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$60 ($add).
+Removed top 24 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$60 ($add).
+Removed top 24 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$61 ($add).
+Removed top 23 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$61 ($add).
+Removed top 1 bits (of 2) from port B of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$procmux$65_CMP0 ($eq).
+Removed top 26 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$58_Y.
+Removed top 1 bits (of 8) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:76$ternary$44_Y.
+Removed top 27 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$57_Y.
+Removed top 28 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$56_Y.
+Removed top 29 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$55_Y.
+Removed top 30 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$54_Y.
+Removed top 24 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$60_Y.
+Removed top 23 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.popcount$func$../../../rtl/hybrid_ring_counter.v:46$24.$result.
+Removed top 25 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$../../../rtl/hybrid_ring_counter.v:38$add$59_Y.
+Removed top 7 bits (of 8) from port B of cell counter_formal.$../../counter_formal.v:75$eq$20 ($eq).
+
+4.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module \counter_formal..
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~1 debug messages>
+
+4.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.12. Executing OPT pass (performing simple optimizations).
+
+4.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module counter_formal.
+
+4.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 31 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `\counter_formal'.
+Computing hashes of 19 cells of `\counter_formal'.
+Finding duplicate cells in `\counter_formal'.
+Removed a total of 0 cells.
+
+4.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module \counter_formal..
+
+4.12.4. Finished fast OPT passes.
+
+4.13. Executing SORT pass.
+
+4.14. Printing statistics.
+
+=== $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       40 wires
+      212 wire bits
+       19 public wires
+      108 public wire bits
+        9 ports
+       24 port bits
+       31 cells
+       10   $add
+        2   $adff
+        2   $and
+        2   $eq
+        3   $logic_not
+        1   $logic_or
+        7   $mux
+        2   $not
+        1   $pmux
+        1   $sub
+
+=== counter_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       19 wires
+       33 wire bits
+       10 public wires
+       24 public wire bits
+        1 ports
+        1 port bits
+       18 cells
+        5   $check
+        4   $dff
+        2   $eq
+        7   $mux
+        1 submodules
+        1   $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+       49 counter_formal
+       31 $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+        +----------Count including submodules.
+        | 
+       59 wires
+      245 wire bits
+       29 public wires
+      132 public wire bits
+       10 ports
+       25 port bits
+        - memories
+        - memory bits
+        - processes
+       49 cells
+       10   $add
+        2   $adff
+        2   $and
+        5   $check
+        4   $dff
+        4   $eq
+        3   $logic_not
+        1   $logic_or
+       14   $mux
+        2   $not
+        1   $pmux
+        1   $sub
+        1 submodules
+        1   $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+4.15. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000...
+Checking module counter_formal...
+Warning: Wire counter_formal.\halt is used but has no driver.
+Found and reported 1 problems.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `counter_formal'. Setting top module to counter_formal.
+
+5.1. Analyzing design hierarchy..
+Top module:  \counter_formal
+Used module:     $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+5.2. Analyzing design hierarchy..
+Top module:  \counter_formal
+Used module:     $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+Removed 0 unused modules.
+Module counter_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+6. Executing jny backend.
+
+7. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 1 unique messages, 2 total
+End of script. Logfile hash: 5e49ffe7d0
+Yosys 0.71+50 (git sha1 583f380c6, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x opt_expr (0 sec), 3% 5x opt_clean (0 sec), ...

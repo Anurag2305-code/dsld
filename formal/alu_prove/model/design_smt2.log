@@ -1,0 +1,137 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.71+50 (git sha1 583f380c6, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `alu_formal'. Setting top module to alu_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \alu_formal
+Used module:     $paramod\alu_core\W=s32'00000000000000000000000000000100
+
+2.2. Analyzing design hierarchy..
+Top module:  \alu_formal
+Used module:     $paramod\alu_core\W=s32'00000000000000000000000000000100
+Removed 0 unused modules.
+Module alu_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== $paramod\alu_core\W=s32'00000000000000000000000000000100 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       69 wires
+      169 wire bits
+       34 public wires
+      104 public wire bits
+       12 ports
+       36 port bits
+       61 cells
+        1   $add
+        3   $and
+        6   $anyinit
+        3   $anyseq
+        1   $assume
+        7   $eq
+        2   $logic_not
+       25   $mux
+        3   $not
+        1   $or
+        3   $pmux
+        1   $reduce_or
+        1   $sub
+        4   $xor
+
+=== alu_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       55 wires
+      140 wire bits
+       20 public wires
+       63 public wire bits
+        1 ports
+        1 port bits
+       58 cells
+        1   $add
+        1   $and
+       13   $anyseq
+        3   $assert
+        1   $assume
+        9   $eq
+       10   $ff
+        2   $logic_and
+        2   $logic_not
+       10   $mux
+        2   $not
+        1   $or
+        1   $pmux
+        1   $sub
+        1   $xor
+        1 submodules
+        1   $paramod\alu_core\W=s32'00000000000000000000000000000100
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      119 alu_formal
+       61 $paramod\alu_core\W=s32'00000000000000000000000000000100
+
+        +----------Count including submodules.
+        | 
+      124 wires
+      309 wire bits
+       54 public wires
+      167 public wire bits
+       13 ports
+       37 port bits
+        - memories
+        - memory bits
+        - processes
+      119 cells
+        2   $add
+        4   $and
+        6   $anyinit
+       16   $anyseq
+        3   $assert
+        2   $assume
+       16   $eq
+       10   $ff
+        2   $logic_and
+        4   $logic_not
+       35   $mux
+        5   $not
+        2   $or
+        4   $pmux
+        1   $reduce_or
+        2   $sub
+        5   $xor
+        1 submodules
+        1   $paramod\alu_core\W=s32'00000000000000000000000000000100
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Creating SMT-LIBv2 representation of module alu_formal.
+
+End of script. Logfile hash: f693efa278
+Yosys 0.71+50 (git sha1 583f380c6, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 11% 2x write_smt2 (0 sec), 11% 2x read_rtlil (0 sec), ...

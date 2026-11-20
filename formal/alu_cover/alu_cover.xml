@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-11-19T12:30:49" hostname="LAPTOP-DEF8BVMR" package="alu" id="0" name="cover" tests="1" errors="1" failures="0" time="0" skipped="0">
+<properties>
+<property name="os" value="Windows"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="ERROR"/>
+</properties>
+<testcase classname="cover" name="cover" time="0">
+<error type="ERROR"/>
+</testcase>
+<system-out>SBY 12:30:48 [formal\alu_prove] Removing directory 'C:\Users\Anurag\Documents\Default Project\alu_ring\formal\alu_prove'.
+SBY 12:30:49 [formal\alu_cover] Removing directory 'C:\Users\Anurag\Documents\Default Project\alu_ring\formal\alu_cover'.
+SBY 12:30:49 [formal\alu_cover] engine_0: smtbmc
+SBY 12:30:49 [formal\alu_cover] base: starting process &quot;cd formal\alu_cover/src&amp; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 12:30:49 [formal\alu_cover] base: ERROR: File `formal/alu_formal.v' not found or is a directory
+SBY 12:30:49 [formal\alu_cover] base: finished (returncode=1)
+SBY 12:30:49 [formal\alu_cover] base: task failed. ERROR.
+SBY 12:30:49 [formal\alu_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 12:30:49 [formal\alu_cover] summary: Elapsed process time unvailable on Windows
+SBY 12:30:49 [formal\alu_cover] summary: engine_0 (smtbmc) did not return a status
+SBY 12:30:49 [formal\alu_cover] summary: engine_0 did not produce any traces
+SBY 12:30:49 [formal\alu_cover] DONE (ERROR, rc=16)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

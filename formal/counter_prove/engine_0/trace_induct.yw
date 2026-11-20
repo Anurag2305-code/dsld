@@ -1,0 +1,42 @@
+{
+  "format": "Yosys Witness Trace",
+  "generator": "smtbmc",
+  "clocks": [
+    {"path": ["\\clk"], "edge": "posedge", "offset": 0}
+  ],
+  "signals": [
+    {"path": ["\\clk"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\halt"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\mode"], "width": 2, "offset": 0, "init_only": false},
+    {"path": ["$auto$async2sync.cc:107:execute$256"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["$auto$async2sync.cc:107:execute$262"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["$auto$async2sync.cc:107:execute$268"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["$auto$async2sync.cc:107:execute$274"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["$auto$async2sync.cc:107:execute$280"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["$auto$async2sync.cc:107:execute$286"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["$auto$async2sync.cc:116:execute$266"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["$auto$async2sync.cc:116:execute$272"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["$auto$async2sync.cc:116:execute$278"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["$auto$async2sync.cc:116:execute$284"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["$auto$async2sync.cc:116:execute$290"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\dut", "\\_witness_", "\\anyinit_procdff_205"], "width": 8, "offset": 0, "init_only": true},
+    {"path": ["\\dut", "\\_witness_", "\\anyinit_procdff_210"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\past"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\prev_mode"], "width": 2, "offset": 0, "init_only": true},
+    {"path": ["\\prev_pattern"], "width": 8, "offset": 0, "init_only": true},
+    {"path": ["\\prev_valid"], "width": 1, "offset": 0, "init_only": true}
+  ],
+  "steps": [
+    {"bits": "000000000000000101000000000000001010"},
+    {"bits": "1010"},
+    {"bits": "1010"},
+    {"bits": "1010"},
+    {"bits": "1010"},
+    {"bits": "1010"},
+    {"bits": "1010"},
+    {"bits": "1010"},
+    {"bits": "1110"},
+    {"bits": "0100"},
+    {"bits": "0000"}
+  ]
+}

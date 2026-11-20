@@ -1,0 +1,11 @@
+[options]
+mode cover
+depth 30
+
+[engines]
+smtbmc
+
+[script]
+read -formal formal/alu_formal.v
+read -formal rtl/alu_core.v
+prep -top alu_formal

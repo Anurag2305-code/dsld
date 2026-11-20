@@ -1,0 +1,9 @@
+# running in formal\counter_straight/src/
+read -formal ../../counter_formal.v
+read -formal ../../../rtl/hybrid_ring_counter.v
+chparam -set MODE 0 counter_formal
+prep -top counter_formal
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

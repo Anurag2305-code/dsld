@@ -1,0 +1,9 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+Elapsed process time unvailable on Windows
+engine_0 (smtbmc) returned FAIL for basecase
+counterexample trace [basecase]: engine_0\trace.vcd
+counterexample trace [basecase]: engine_0\trace.yw
+  failed assertion counter_formal._witness_.check_______counter_formal_v_74_assert_24 at ../../counter_formal.v:74.17-74.72 step 2
+counterexample trace [induction]: engine_0\trace_induct.vcd
+counterexample trace [induction]: engine_0\trace_induct.yw
+  failed assertion counter_formal._witness_.check_______counter_formal_v_63_assert_14 at ../../counter_formal.v:63.13-63.26

@@ -1,0 +1,1488 @@
+﻿
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.71+50 (git sha1 583f380c6, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Running command `read_verilog rtl/hybrid_ring_counter.v rtl/alu_core.v rtl/alu_top.v; hierarchy -top alu_top; synth -top alu_top; stat' --
+
+1. Executing Verilog-2005 frontend: rtl/hybrid_ring_counter.v
+Parsing Verilog input from `rtl/hybrid_ring_counter.v' to AST representation.
+Generating RTLIL representation for module `\hybrid_ring_counter'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: rtl/alu_core.v
+Parsing Verilog input from `rtl/alu_core.v' to AST representation.
+Generating RTLIL representation for module `\alu_core'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: rtl/alu_top.v
+Parsing Verilog input from `rtl/alu_top.v' to AST representation.
+Generating RTLIL representation for module `\alu_top'.
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \alu_top
+Used module:     \alu_core
+Used module:     \hybrid_ring_counter
+Parameter \W = 4
+
+4.2. Executing AST frontend in derive mode using pre-parsed AST for module `\alu_core'.
+Parameter \W = 4
+Generating RTLIL representation for module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Parameter \N = 8
+
+4.3. Executing AST frontend in derive mode using pre-parsed AST for module `\hybrid_ring_counter'.
+Parameter \N = 8
+Generating RTLIL representation for module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+
+4.4. Analyzing design hierarchy..
+Top module:  \alu_top
+Used module:     $paramod\alu_core\W=s32'00000000000000000000000000000100
+Used module:     $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+4.5. Analyzing design hierarchy..
+Top module:  \alu_top
+Used module:     $paramod\alu_core\W=s32'00000000000000000000000000000100
+Used module:     $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+Removing unused module `\alu_core'.
+Removing unused module `\hybrid_ring_counter'.
+Removed 2 unused modules.
+
+5. Executing SYNTH pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1.1. Analyzing design hierarchy..
+Top module:  \alu_top
+Used module:     $paramod\alu_core\W=s32'00000000000000000000000000000100
+Used module:     $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+5.1.2. Analyzing design hierarchy..
+Top module:  \alu_top
+Used module:     $paramod\alu_core\W=s32'00000000000000000000000000000100
+Used module:     $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+Removed 0 unused modules.
+
+5.2. Executing PROC pass (convert processes to netlists).
+
+5.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $rtl/hybrid_ring_counter.v:91$proc$107 in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Marked 4 switch rules as full_case in process $rtl/hybrid_ring_counter.v:71$proc$101 in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Marked 1 switch rules as full_case in process $rtl/alu_core.v:94$proc$81 in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Removed 1 dead cases from process $rtl/alu_core.v:65$proc$73 in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Marked 1 switch rules as full_case in process $rtl/alu_core.v:65$proc$73 in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Marked 8 switch rules as full_case in process $rtl/alu_core.v:50$proc$72 in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Removed a total of 1 dead cases.
+
+5.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 11 assignments to connections.
+
+5.2.4. Executing PROC_INIT pass (extract init attributes).
+
+5.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:91$proc$107'.
+Found async reset \rst_n in `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:94$proc$81'.
+
+5.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~14 debug messages>
+
+5.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:46$proc$109'.
+Creating decoders for process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:91$proc$107'.
+     1/2: $0\recovered[0:0]
+     2/2: $0\pattern[7:0]
+Creating decoders for process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:71$proc$101'.
+     1/5: $4\next_pattern[7:0]
+     2/5: $3\next_pattern[7:0]
+     3/5: $2\next_pattern[7:0]
+     4/5: $1\do_recover[0:0]
+     5/5: $1\next_pattern[7:0]
+Creating decoders for process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:94$proc$81'.
+     1/6: $0\flag_negative[0:0]
+     2/6: $0\flag_overflow[0:0]
+     3/6: $0\flag_zero[0:0]
+     4/6: $0\flag_carry[0:0]
+     5/6: $0\op_mask[7:0]
+     6/6: $0\result[4:0]
+Creating decoders for process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:65$proc$73'.
+     1/3: $1\res_n[4:0]
+     2/3: $1\o_n[0:0]
+     3/3: $1\c_n[0:0]
+Creating decoders for process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:50$proc$72'.
+     1/8: $8\sel[2:0]
+     2/8: $7\sel[2:0]
+     3/8: $6\sel[2:0]
+     4/8: $5\sel[2:0]
+     5/8: $4\sel[2:0]
+     6/8: $3\sel[2:0]
+     7/8: $2\sel[2:0]
+     8/8: $1\sel[2:0]
+
+5.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\popcount$func$rtl/hybrid_ring_counter.v:46$84.$result' from process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:46$proc$109'.
+No latch inferred for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\next_pattern' from process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:71$proc$101'.
+No latch inferred for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\do_recover' from process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:71$proc$101'.
+No latch inferred for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\res_n' from process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:65$proc$73'.
+No latch inferred for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\c_n' from process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:65$proc$73'.
+No latch inferred for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\o_n' from process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:65$proc$73'.
+No latch inferred for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\n_n' from process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:65$proc$73'.
+No latch inferred for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\sel' from process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:50$proc$72'.
+
+5.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\pattern' using process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:91$proc$107'.
+  created $adff cell `$procdff$306' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.\recovered' using process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:91$proc$107'.
+  created $adff cell `$procdff$311' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\result' using process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:94$proc$81'.
+  created $adff cell `$procdff$316' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\op_mask' using process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:94$proc$81'.
+  created $adff cell `$procdff$321' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\flag_carry' using process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:94$proc$81'.
+  created $adff cell `$procdff$326' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\flag_zero' using process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:94$proc$81'.
+  created $adff cell `$procdff$331' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\flag_overflow' using process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:94$proc$81'.
+  created $adff cell `$procdff$336' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\alu_core\W=s32'00000000000000000000000000000100.\flag_negative' using process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:94$proc$81'.
+  created $adff cell `$procdff$341' with positive edge clock and positive level reset.
+
+5.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:46$proc$109'.
+Removing empty process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:91$proc$107'.
+Found and cleaned up 4 empty switches in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:71$proc$101'.
+Removing empty process `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:71$proc$101'.
+Found and cleaned up 1 empty switch in `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:94$proc$81'.
+Removing empty process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:94$proc$81'.
+Found and cleaned up 1 empty switch in `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:65$proc$73'.
+Removing empty process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:65$proc$73'.
+Found and cleaned up 8 empty switches in `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:50$proc$72'.
+Removing empty process `$paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:50$proc$72'.
+Cleaned up 14 empty switches.
+
+5.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+<suppressed ~15 debug messages>
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+<suppressed ~18 debug messages>
+
+5.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+<suppressed ~1 debug messages>
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.4. Executing CHECK pass (checking for obvious problems).
+Checking module alu_top...
+Checking module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000...
+Checking module $paramod\alu_core\W=s32'00000000000000000000000000000100...
+Found and reported 0 problems.
+
+5.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+Removed 13 unused cells and 130 unused wires.
+<suppressed ~17 debug messages>
+
+5.6. Executing OPT pass (performing simple optimizations).
+
+5.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 39 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 36 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+<suppressed ~9 debug messages>
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 89 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 71 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+<suppressed ~54 debug messages>
+Removed a total of 21 cells.
+
+5.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \alu_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$133.
+    dead port 1/2 on $mux $procmux$130.
+    dead port 1/2 on $mux $procmux$127.
+    dead port 2/2 on $mux $procmux$148.
+    dead port 2/2 on $mux $procmux$142.
+    dead port 1/2 on $mux $procmux$139.
+Running muxtree optimizer on module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$255.
+    dead port 1/2 on $mux $procmux$252.
+    dead port 1/2 on $mux $procmux$249.
+    dead port 1/2 on $mux $procmux$246.
+    dead port 1/2 on $mux $procmux$243.
+    dead port 1/2 on $mux $procmux$237.
+    dead port 1/2 on $mux $procmux$234.
+    dead port 1/2 on $mux $procmux$231.
+    dead port 1/2 on $mux $procmux$228.
+    dead port 1/2 on $mux $procmux$225.
+    dead port 1/2 on $mux $procmux$222.
+    dead port 1/2 on $mux $procmux$216.
+    dead port 1/2 on $mux $procmux$213.
+    dead port 1/2 on $mux $procmux$210.
+    dead port 1/2 on $mux $procmux$207.
+    dead port 1/2 on $mux $procmux$204.
+    dead port 1/2 on $mux $procmux$201.
+    dead port 1/2 on $mux $procmux$198.
+    dead port 1/2 on $mux $procmux$297.
+    dead port 1/2 on $mux $procmux$291.
+    dead port 1/2 on $mux $procmux$288.
+    dead port 1/2 on $mux $procmux$282.
+    dead port 1/2 on $mux $procmux$279.
+    dead port 1/2 on $mux $procmux$276.
+    dead port 1/2 on $mux $procmux$270.
+    dead port 1/2 on $mux $procmux$267.
+    dead port 1/2 on $mux $procmux$264.
+    dead port 1/2 on $mux $procmux$261.
+Removed 34 multiplexer ports.
+<suppressed ~69 debug messages>
+
+5.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \alu_top.
+  Optimizing cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+  Optimizing cells in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+    New ctrl vector for $pmux cell $procmux$177: { $auto$opt_reduce.cc:137:opt_pmux$343 $procmux$190_CMP $procmux$191_CMP }
+    New ctrl vector for $pmux cell $procmux$186: { $auto$opt_reduce.cc:137:opt_pmux$345 $procmux$190_CMP $procmux$191_CMP }
+  Optimizing cells in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Performed a total of 2 changes.
+
+5.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 30 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 45 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 44 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+5.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+Removed 0 unused cells and 56 unused wires.
+<suppressed ~2 debug messages>
+
+5.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \alu_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+5.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \alu_top.
+  Optimizing cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+  Optimizing cells in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+5.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 30 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 44 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+5.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+
+5.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5.7. Executing FSM pass (extract and optimize FSM).
+
+5.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+5.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+5.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+
+5.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+5.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+5.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+5.8. Executing OPT pass (performing simple optimizations).
+
+5.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 30 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 44 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+5.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \alu_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+5.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \alu_top.
+  Optimizing cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+  Optimizing cells in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+5.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 30 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 44 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+5.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$306 ($adff) from module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000 (D = \next_pattern, Q = \pattern).
+Adding EN signal on $procdff$341 ($adff) from module $paramod\alu_core\W=s32'00000000000000000000000000000100 (D = \res_n [3], Q = \flag_negative).
+Adding EN signal on $procdff$336 ($adff) from module $paramod\alu_core\W=s32'00000000000000000000000000000100 (D = \o_n, Q = \flag_overflow).
+Adding EN signal on $procdff$321 ($adff) from module $paramod\alu_core\W=s32'00000000000000000000000000000100 (D = \op_en, Q = \op_mask).
+Adding EN signal on $procdff$326 ($adff) from module $paramod\alu_core\W=s32'00000000000000000000000000000100 (D = \c_n, Q = \flag_carry).
+Adding EN signal on $procdff$331 ($adff) from module $paramod\alu_core\W=s32'00000000000000000000000000000100 (D = $rtl/alu_core.v:109$eq$83_Y, Q = \flag_zero).
+Adding EN signal on $procdff$316 ($adff) from module $paramod\alu_core\W=s32'00000000000000000000000000000100 (D = \res_n, Q = \result).
+
+5.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+Removed 6 unused cells and 6 unused wires.
+<suppressed ~7 debug messages>
+
+5.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \alu_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~25 debug messages>
+
+5.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \alu_top.
+  Optimizing cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+  Optimizing cells in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+5.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 31 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 38 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+5.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+
+5.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.8.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from port B of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:46$eq$87 ($eq).
+Removed top 7 bits (of 8) from port B of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:56$add$88 ($add).
+Removed top 7 bits (of 8) from port B of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:57$add$90 ($add).
+Removed top 7 bits (of 8) from port B of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:60$sub$93 ($sub).
+Removed top 1 bits (of 8) from mux cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:76$ternary$104 ($mux).
+Removed top 31 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$115 ($add).
+Removed top 30 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$115 ($add).
+Removed top 30 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$116 ($add).
+Removed top 29 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$116 ($add).
+Removed top 29 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$117 ($add).
+Removed top 28 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$117 ($add).
+Removed top 28 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$118 ($add).
+Removed top 27 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$118 ($add).
+Removed top 27 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$119 ($add).
+Removed top 26 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$119 ($add).
+Removed top 26 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$120 ($add).
+Removed top 25 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$120 ($add).
+Removed top 25 bits (of 32) from port A of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$121 ($add).
+Removed top 24 bits (of 32) from port Y of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$121 ($add).
+Removed top 1 bits (of 2) from port B of cell $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$procmux$125_CMP0 ($eq).
+Removed top 27 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$118_Y.
+Removed top 29 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$116_Y.
+Removed top 30 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$115_Y.
+Removed top 28 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$117_Y.
+Removed top 1 bits (of 8) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:76$ternary$104_Y.
+Removed top 26 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$119_Y.
+Removed top 25 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.$rtl/hybrid_ring_counter.v:38$add$120_Y.
+Removed top 24 bits (of 32) from wire $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.popcount$func$rtl/hybrid_ring_counter.v:46$84.$result.
+Removed top 1 bits (of 5) from port A of cell $paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:40$add$68 ($add).
+Removed top 1 bits (of 5) from port B of cell $paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:40$add$68 ($add).
+Removed top 1 bits (of 5) from port A of cell $paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:41$sub$69 ($sub).
+Removed top 1 bits (of 5) from port B of cell $paramod\alu_core\W=s32'00000000000000000000000000000100.$rtl/alu_core.v:41$sub$69 ($sub).
+Removed top 1 bits (of 3) from port B of cell $paramod\alu_core\W=s32'00000000000000000000000000000100.$procmux$191_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell $paramod\alu_core\W=s32'00000000000000000000000000000100.$procmux$192_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell $paramod\alu_core\W=s32'00000000000000000000000000000100.$procmux$193_CMP0 ($eq).
+Removed top 2 bits (of 3) from mux cell $paramod\alu_core\W=s32'00000000000000000000000000000100.$procmux$219 ($mux).
+Removed top 1 bits (of 3) from mux cell $paramod\alu_core\W=s32'00000000000000000000000000000100.$procmux$240 ($mux).
+Removed top 1 bits (of 3) from mux cell $paramod\alu_core\W=s32'00000000000000000000000000000100.$procmux$258 ($mux).
+Removed top 2 bits (of 3) from wire $paramod\alu_core\W=s32'00000000000000000000000000000100.$7\sel[2:0].
+Removed top 1 bits (of 3) from wire $paramod\alu_core\W=s32'00000000000000000000000000000100.$6\sel[2:0].
+Removed top 1 bits (of 3) from wire $paramod\alu_core\W=s32'00000000000000000000000000000100.$5\sel[2:0].
+Removed top 1 bits (of 5) from wire $paramod\alu_core\W=s32'00000000000000000000000000000100.r_shl.
+Removed top 2 bits (of 5) from wire $paramod\alu_core\W=s32'00000000000000000000000000000100.r_shr.
+Removed top 1 bits (of 5) from wire $paramod\alu_core\W=s32'00000000000000000000000000000100.r_xnor.
+Removed top 1 bits (of 5) from wire $paramod\alu_core\W=s32'00000000000000000000000000000100.r_xor.
+Removed top 1 bits (of 5) from wire $paramod\alu_core\W=s32'00000000000000000000000000000100.r_or.
+Removed top 1 bits (of 5) from wire $paramod\alu_core\W=s32'00000000000000000000000000000100.r_and.
+
+5.10. Executing PEEPOPT pass (run peephole optimizers).
+
+5.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+Removed 0 unused cells and 17 unused wires.
+<suppressed ~2 debug messages>
+
+5.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module alu_top:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000:
+  creating $macc model for $rtl/hybrid_ring_counter.v:38$add$121 ($add).
+  creating $macc model for $rtl/hybrid_ring_counter.v:38$add$120 ($add).
+  creating $macc model for $rtl/hybrid_ring_counter.v:38$add$119 ($add).
+  creating $macc model for $rtl/hybrid_ring_counter.v:38$add$118 ($add).
+  creating $macc model for $rtl/hybrid_ring_counter.v:38$add$117 ($add).
+  creating $macc model for $rtl/hybrid_ring_counter.v:38$add$116 ($add).
+  creating $macc model for $rtl/hybrid_ring_counter.v:38$add$115 ($add).
+  creating $macc model for $rtl/hybrid_ring_counter.v:60$sub$93 ($sub).
+  creating $macc model for $rtl/hybrid_ring_counter.v:57$add$90 ($add).
+  creating $macc model for $rtl/hybrid_ring_counter.v:56$add$88 ($add).
+  merging $macc model for $rtl/hybrid_ring_counter.v:38$add$115 into $rtl/hybrid_ring_counter.v:38$add$116.
+  merging $macc model for $rtl/hybrid_ring_counter.v:38$add$116 into $rtl/hybrid_ring_counter.v:38$add$117.
+  merging $macc model for $rtl/hybrid_ring_counter.v:38$add$117 into $rtl/hybrid_ring_counter.v:38$add$118.
+  merging $macc model for $rtl/hybrid_ring_counter.v:38$add$118 into $rtl/hybrid_ring_counter.v:38$add$119.
+  merging $macc model for $rtl/hybrid_ring_counter.v:38$add$119 into $rtl/hybrid_ring_counter.v:38$add$120.
+  merging $macc model for $rtl/hybrid_ring_counter.v:38$add$120 into $rtl/hybrid_ring_counter.v:38$add$121.
+  creating $alu model for $macc $rtl/hybrid_ring_counter.v:60$sub$93.
+  creating $alu model for $macc $rtl/hybrid_ring_counter.v:57$add$90.
+  creating $alu model for $macc $rtl/hybrid_ring_counter.v:56$add$88.
+  creating $macc cell for $rtl/hybrid_ring_counter.v:38$add$121: $auto$alumacc.cc:427:replace_macc$372
+  creating $alu cell for $rtl/hybrid_ring_counter.v:56$add$88: $auto$alumacc.cc:578:replace_alu$373
+  creating $alu cell for $rtl/hybrid_ring_counter.v:57$add$90: $auto$alumacc.cc:578:replace_alu$376
+  creating $alu cell for $rtl/hybrid_ring_counter.v:60$sub$93: $auto$alumacc.cc:578:replace_alu$379
+  created 3 $alu and 1 $macc cells.
+Extracting $alu and $macc cells in module $paramod\alu_core\W=s32'00000000000000000000000000000100:
+  creating $macc model for $rtl/alu_core.v:41$sub$69 ($sub).
+  creating $macc model for $rtl/alu_core.v:40$add$68 ($add).
+  creating $alu model for $macc $rtl/alu_core.v:40$add$68.
+  creating $alu model for $macc $rtl/alu_core.v:41$sub$69.
+  creating $alu cell for $rtl/alu_core.v:41$sub$69: $auto$alumacc.cc:578:replace_alu$382
+  creating $alu cell for $rtl/alu_core.v:40$add$68: $auto$alumacc.cc:578:replace_alu$385
+  created 2 $alu and 0 $macc cells.
+
+5.13. Executing SHARE pass (SAT-based resource sharing).
+
+5.14. Executing OPT pass (performing simple optimizations).
+
+5.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 31 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 38 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+5.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \alu_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~25 debug messages>
+
+5.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \alu_top.
+  Optimizing cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+  Optimizing cells in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+5.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 31 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 38 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+5.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+Removed 6 unused cells and 6 unused wires.
+<suppressed ~7 debug messages>
+
+5.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \alu_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~25 debug messages>
+
+5.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \alu_top.
+  Optimizing cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+  Optimizing cells in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+5.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 25 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 38 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+5.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+
+5.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.14.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5.15. Executing MEMORY pass.
+
+5.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+5.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+5.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+5.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+5.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+5.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+
+5.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+5.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+5.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+
+5.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+
+5.17. Executing OPT pass (performing simple optimizations).
+
+5.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+<suppressed ~2 debug messages>
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+<suppressed ~4 debug messages>
+
+5.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 24 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 38 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+5.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+Removed 2 unused cells and 3 unused wires.
+<suppressed ~4 debug messages>
+
+5.17.5. Finished fast OPT passes.
+
+5.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+5.19. Executing OPT pass (performing simple optimizations).
+
+5.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 24 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 36 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+5.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \alu_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~21 debug messages>
+
+5.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \alu_top.
+  Optimizing cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+    Consolidated identical input bits for $mux cell $rtl/hybrid_ring_counter.v:76$ternary$104:
+      Old ports: A=7'0000001, B=7'1111111, Y=$auto$wreduce.cc:514:run$359 [6:0]
+      New ports: A=1'0, B=1'1, Y=$auto$wreduce.cc:514:run$359 [1]
+      New connections: { $auto$wreduce.cc:514:run$359 [6:2] $auto$wreduce.cc:514:run$359 [0] } = { $auto$wreduce.cc:514:run$359 [1] $auto$wreduce.cc:514:run$359 [1] $auto$wreduce.cc:514:run$359 [1] $auto$wreduce.cc:514:run$359 [1] $auto$wreduce.cc:514:run$359 [1] 1'1 }
+  Optimizing cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+  Optimizing cells in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Performed a total of 1 changes.
+
+5.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 24 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 36 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+5.19.6. Executing OPT_SHARE pass.
+
+5.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+
+5.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+<suppressed ~1 debug messages>
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \alu_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~20 debug messages>
+
+5.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \alu_top.
+  Optimizing cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+  Optimizing cells in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+5.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 23 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 36 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+5.19.14. Executing OPT_SHARE pass.
+
+5.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+5.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \alu_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~20 debug messages>
+
+5.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \alu_top.
+  Optimizing cells in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+  Optimizing cells in module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+5.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 23 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 36 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+5.19.22. Executing OPT_SHARE pass.
+
+5.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+
+5.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.19.26. Finished fast OPT passes. (There is nothing left to do.)
+
+5.20. Executing TECHMAP pass (map to technology primitives).
+
+5.20.1. Executing Verilog-2005 frontend: C:\Users\Anurag\oss-cad-suite\bin\../share/yosys/techmap.v
+Parsing Verilog input from `C:\Users\Anurag\oss-cad-suite\bin\../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+5.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $adffe.
+Using template $paramod$b85fbb3374a1d9ba7ee4f4d6323c30f939df3ada\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $pmux.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000101 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000101 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper maccmap for cells of type $macc_v2.
+  add \pattern [0] (1 bits, unsigned)
+  add \pattern [1] (1 bits, unsigned)
+  add \pattern [2] (1 bits, unsigned)
+  add \pattern [3] (1 bits, unsigned)
+  add \pattern [4] (1 bits, unsigned)
+  add \pattern [5] (1 bits, unsigned)
+  add \pattern [6] (1 bits, unsigned)
+  add \pattern [7] (1 bits, unsigned)
+  packed 3 (3) bits / 3 words into adder tree
+Using template $paramod$c3cd1564c35d873179656addd6052d7ea8b6d991\_90_alu for cells of type $alu.
+Using template $paramod$403a3c2fa431a154c52a6a5429d7a6260b5d144f\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $adff.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000001 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000010 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000011 for cells of type $fa.
+Using template $paramod$a1bc51c02ce12ac21eb18988e83292af48ed7d72\_90_alu for cells of type $alu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $logic_and.
+No more expansions possible.
+<suppressed ~665 debug messages>
+
+5.21. Executing OPT pass (performing simple optimizations).
+
+5.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+<suppressed ~320 debug messages>
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+<suppressed ~95 debug messages>
+
+5.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 4 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 228 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 213 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+<suppressed ~45 debug messages>
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 217 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 191 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 186 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+<suppressed ~93 debug messages>
+Removed a total of 46 cells.
+
+5.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+Removed 16 unused cells and 399 unused wires.
+<suppressed ~18 debug messages>
+
+5.21.5. Finished fast OPT passes.
+
+5.22. Executing ABC pass (technology mapping using ABC).
+
+5.22.1. Summary of detected clock domains:
+  2 cells in clk=\clk, en={ }, arst=!\rst_n, srst={ }
+  195 cells in clk=\clk, en=$auto$simple.cc:213:make_patterns_logic$347, arst=!\rst_n, srst={ }
+
+5.22.2. Extracting gate netlist of module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, asynchronously reset by !\rst_n
+
+5.22.3. Extracting gate netlist of module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $auto$simple.cc:213:make_patterns_logic$347, asynchronously reset by !\rst_n
+
+5.22.4. Summary of detected clock domains:
+  186 cells in clk=\clk, en=\out_en, arst=!\rst_n, srst={ }
+
+5.22.5. Extracting gate netlist of module `$paramod\alu_core\W=s32'00000000000000000000000000000100' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by \out_en, asynchronously reset by !\rst_n
+
+5.22.6. Summary of detected clock domains:
+  4 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+5.22.7. Extracting gate netlist of module `\alu_top' to `<abc-temp-dir>/input.blif'..
+No matching clock domain found. Not extracting any FF cells.
+
+5.22.7.1. Executed ABC.
+Extracted 1 gates and 2 wires to a netlist network with 1 inputs and 1 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+5.22.7.2. Re-integrating ABC results.
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        1
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+
+5.22.7.1. Executed ABC.
+Extracted 187 gates and 210 wires to a netlist network with 21 inputs and 10 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+5.22.7.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       28
+ABC RESULTS:            ANDNOT cells:        1
+ABC RESULTS:               MUX cells:        2
+ABC RESULTS:              NAND cells:       61
+ABC RESULTS:               NOR cells:        5
+ABC RESULTS:               NOT cells:        2
+ABC RESULTS:                OR cells:       14
+ABC RESULTS:             ORNOT cells:        6
+ABC RESULTS:              XNOR cells:        2
+ABC RESULTS:               XOR cells:        1
+ABC RESULTS:        internal signals:      179
+ABC RESULTS:           input signals:       21
+ABC RESULTS:          output signals:       10
+Removing temp directory.
+
+5.22.7.1. Executed ABC.
+Extracted 170 gates and 187 wires to a netlist network with 15 inputs and 8 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+5.22.7.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       27
+ABC RESULTS:            ANDNOT cells:       11
+ABC RESULTS:               MUX cells:        2
+ABC RESULTS:              NAND cells:       45
+ABC RESULTS:               NOR cells:       13
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:                OR cells:        7
+ABC RESULTS:             ORNOT cells:       10
+ABC RESULTS:              XNOR cells:        5
+ABC RESULTS:               XOR cells:        3
+ABC RESULTS:        internal signals:      164
+ABC RESULTS:           input signals:       15
+ABC RESULTS:          output signals:        8
+Removing temp directory.
+
+5.22.7.1. Executed ABC.
+Extracted 2 gates and 4 wires to a netlist network with 2 inputs and 1 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+5.22.7.2. Re-integrating ABC results.
+ABC RESULTS:            ANDNOT cells:        1
+ABC RESULTS:        internal signals:        1
+ABC RESULTS:           input signals:        2
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+Removing global temp directory.
+
+5.23. Executing OPT pass (performing simple optimizations).
+
+5.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_top.
+Optimizing module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Optimizing module $paramod\alu_core\W=s32'00000000000000000000000000000100.
+
+5.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_top'.
+Computing hashes of 3 cells of `\alu_top'.
+Finding duplicate cells in `\alu_top'.
+Finding identical cells in module `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Computing hashes of 132 cells of `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding duplicate cells in `$paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000'.
+Finding identical cells in module `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 140 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 139 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Computing hashes of 138 cells of `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\alu_core\W=s32'00000000000000000000000000000100'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+5.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_top..
+Finding unused cells or wires in module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000..
+Finding unused cells or wires in module $paramod\alu_core\W=s32'00000000000000000000000000000100..
+Removed 0 unused cells and 255 unused wires.
+<suppressed ~13 debug messages>
+
+5.23.5. Finished fast OPT passes.
+
+5.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `alu_top'. Setting top module to alu_top.
+
+5.24.1. Analyzing design hierarchy..
+Top module:  \alu_top
+Used module:     $paramod\alu_core\W=s32'00000000000000000000000000000100
+Used module:     $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+5.24.2. Analyzing design hierarchy..
+Top module:  \alu_top
+Used module:     $paramod\alu_core\W=s32'00000000000000000000000000000100
+Used module:     $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+Removed 0 unused modules.
+
+5.25. Printing statistics.
+
+=== alu_top ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       13 wires
+       38 wire bits
+       12 public wires
+       37 public wire bits
+        9 ports
+       27 port bits
+        1 cells
+        1   $_ANDNOT_
+        2 submodules
+        1   $paramod\alu_core\W=s32'00000000000000000000000000000100
+        1   $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+=== $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      128 wires
+      202 wire bits
+       15 public wires
+       89 public wire bits
+        9 ports
+       24 port bits
+      132 cells
+        1   $_ANDNOT_
+       28   $_AND_
+        7   $_DFFE_PN0P_
+        1   $_DFFE_PN1P_
+        1   $_DFF_PN0_
+        2   $_MUX_
+       61   $_NAND_
+        5   $_NOR_
+        3   $_NOT_
+        6   $_ORNOT_
+       14   $_OR_
+        2   $_XNOR_
+        1   $_XOR_
+
+=== $paramod\alu_core\W=s32'00000000000000000000000000000100 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      135 wires
+      168 wire bits
+       18 public wires
+       51 public wire bits
+       12 ports
+       36 port bits
+      138 cells
+       11   $_ANDNOT_
+       27   $_AND_
+       15   $_DFFE_PN0P_
+        2   $_MUX_
+       44   $_NAND_
+       13   $_NOR_
+        1   $_NOT_
+       10   $_ORNOT_
+        7   $_OR_
+        5   $_XNOR_
+        3   $_XOR_
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      271 alu_top
+      138 $paramod\alu_core\W=s32'00000000000000000000000000000100
+      132 $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+        +----------Count including submodules.
+        | 
+      276 wires
+      408 wire bits
+       45 public wires
+      177 public wire bits
+       30 ports
+       87 port bits
+        - memories
+        - memory bits
+        - processes
+      271 cells
+       13   $_ANDNOT_
+       55   $_AND_
+       22   $_DFFE_PN0P_
+        1   $_DFFE_PN1P_
+        1   $_DFF_PN0_
+        4   $_MUX_
+      105   $_NAND_
+       18   $_NOR_
+        4   $_NOT_
+       16   $_ORNOT_
+       21   $_OR_
+        7   $_XNOR_
+        4   $_XOR_
+        2 submodules
+        1   $paramod\alu_core\W=s32'00000000000000000000000000000100
+        1   $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+5.26. Executing CHECK pass (checking for obvious problems).
+Checking module alu_top...
+Checking module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000...
+Checking module $paramod\alu_core\W=s32'00000000000000000000000000000100...
+Found and reported 0 problems.
+
+6. Printing statistics.
+
+=== alu_top ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       13 wires
+       38 wire bits
+       12 public wires
+       37 public wire bits
+        9 ports
+       27 port bits
+        1 cells
+        1   $_ANDNOT_
+        2 submodules
+        1   $paramod\alu_core\W=s32'00000000000000000000000000000100
+        1   $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+=== $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      128 wires
+      202 wire bits
+       15 public wires
+       89 public wire bits
+        9 ports
+       24 port bits
+      132 cells
+        1   $_ANDNOT_
+       28   $_AND_
+        7   $_DFFE_PN0P_
+        1   $_DFFE_PN1P_
+        1   $_DFF_PN0_
+        2   $_MUX_
+       61   $_NAND_
+        5   $_NOR_
+        3   $_NOT_
+        6   $_ORNOT_
+       14   $_OR_
+        2   $_XNOR_
+        1   $_XOR_
+
+=== $paramod\alu_core\W=s32'00000000000000000000000000000100 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      135 wires
+      168 wire bits
+       18 public wires
+       51 public wire bits
+       12 ports
+       36 port bits
+      138 cells
+       11   $_ANDNOT_
+       27   $_AND_
+       15   $_DFFE_PN0P_
+        2   $_MUX_
+       44   $_NAND_
+       13   $_NOR_
+        1   $_NOT_
+       10   $_ORNOT_
+        7   $_OR_
+        5   $_XNOR_
+        3   $_XOR_
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      271 alu_top
+      138 $paramod\alu_core\W=s32'00000000000000000000000000000100
+      132 $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+        +----------Count including submodules.
+        | 
+      276 wires
+      408 wire bits
+       45 public wires
+      177 public wire bits
+       30 ports
+       87 port bits
+        - memories
+        - memory bits
+        - processes
+      271 cells
+       13   $_ANDNOT_
+       55   $_AND_
+       22   $_DFFE_PN0P_
+        1   $_DFFE_PN1P_
+        1   $_DFF_PN0_
+        4   $_MUX_
+      105   $_NAND_
+       18   $_NOR_
+        4   $_NOT_
+       16   $_ORNOT_
+       21   $_OR_
+        7   $_XNOR_
+        4   $_XOR_
+        2 submodules
+        1   $paramod\alu_core\W=s32'00000000000000000000000000000100
+        1   $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+End of script. Logfile hash: f1bc874958
+Yosys 0.71+50 (git sha1 583f380c6, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 2% 22x opt_expr (0 sec), 2% 20x opt_clean (0 sec), ...

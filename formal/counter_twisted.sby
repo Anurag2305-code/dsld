@@ -1,0 +1,12 @@
+[options]
+mode prove
+depth 12
+
+[engines]
+smtbmc
+
+[script]
+read -formal ../../counter_formal.v
+read -formal ../../../rtl/hybrid_ring_counter.v
+chparam -set MODE 1 counter_formal
+prep -top counter_formal

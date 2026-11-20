@@ -1,0 +1,123 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.71+50 (git sha1 583f380c6, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `counter_formal'. Setting top module to counter_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \counter_formal
+Used module:     $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+2.2. Analyzing design hierarchy..
+Top module:  \counter_formal
+Used module:     $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+Removed 0 unused modules.
+Module counter_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       42 wires
+      189 wire bits
+       19 public wires
+       77 public wire bits
+        9 ports
+       24 port bits
+       36 cells
+        9   $add
+        2   $and
+        2   $anyinit
+        1   $assume
+        2   $eq
+        3   $logic_not
+        1   $logic_or
+       11   $mux
+        3   $not
+        1   $pmux
+        1   $sub
+
+=== counter_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       33 wires
+       47 wire bits
+       10 public wires
+       24 public wire bits
+        1 ports
+        1 port bits
+       35 cells
+        1   $anyseq
+        6   $assert
+        1   $assume
+        3   $eq
+       12   $ff
+       10   $mux
+        2   $not
+        1 submodules
+        1   $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+       71 counter_formal
+       36 $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+        +----------Count including submodules.
+        | 
+       75 wires
+      236 wire bits
+       29 public wires
+      101 public wire bits
+       10 ports
+       25 port bits
+        - memories
+        - memory bits
+        - processes
+       71 cells
+        9   $add
+        2   $and
+        2   $anyinit
+        1   $anyseq
+        6   $assert
+        2   $assume
+        5   $eq
+       12   $ff
+        3   $logic_not
+        1   $logic_or
+       21   $mux
+        5   $not
+        1   $pmux
+        1   $sub
+        1 submodules
+        1   $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module $paramod\hybrid_ring_counter\N=s32'00000000000000000000000000001000.
+Creating SMT-LIBv2 representation of module counter_formal.
+
+End of script. Logfile hash: 6c1ae5b6af
+Yosys 0.71+50 (git sha1 583f380c6, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 11% 2x write_smt2 (0 sec), 11% 2x read_rtlil (0 sec), ...

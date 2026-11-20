@@ -1,0 +1,8 @@
+# running in formal\counter_prove/src/
+read -formal ../../counter_formal.v
+read -formal ../../../rtl/hybrid_ring_counter.v
+prep -top counter_formal
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

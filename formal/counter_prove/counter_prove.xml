@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-11-19T12:31:13" hostname="LAPTOP-DEF8BVMR" package="counter" id="0" name="prove" tests="6" errors="0" failures="3" time="0" skipped="4">
+<properties>
+<property name="os" value="Windows"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="FAIL"/>
+</properties>
+<testcase classname="prove" name="build execution" time="0">
+<failure type="FAIL" message="Task returned status FAIL." />
+</testcase>
+<testcase classname="prove" name="Property ASSERT in counter_formal at ../../counter_formal.v:63.13-63.26" time="0" type="ASSERT" location="../../counter_formal.v:63.13-63.26" id="_witness_.check_______counter_formal_v_63_assert_14" tracefile="engine_0\trace_induct.vcd">
+<failure type="ASSERT" message="Property ASSERT in counter_formal at ../../counter_formal.v:63.13-63.26 failed. Trace file: engine_0\trace_induct.vcd" />
+</testcase>
+<testcase classname="prove" name="Property ASSERT in counter_formal at ../../counter_formal.v:66.17-66.34" time="0" type="ASSERT" location="../../counter_formal.v:66.17-66.34" id="_witness_.check_______counter_formal_v_66_assert_16">
+<skipped />
+</testcase>
+<testcase classname="prove" name="Property ASSERT in counter_formal at ../../counter_formal.v:68.21-68.51" time="0" type="ASSERT" location="../../counter_formal.v:68.21-68.51" id="_witness_.check_______counter_formal_v_68_assert_18">
+<skipped />
+</testcase>
+<testcase classname="prove" name="Property ASSERT in counter_formal at ../../counter_formal.v:70.21-70.51" time="0" type="ASSERT" location="../../counter_formal.v:70.21-70.51" id="_witness_.check_______counter_formal_v_70_assert_20">
+<skipped />
+</testcase>
+<testcase classname="prove" name="Property ASSERT in counter_formal at ../../counter_formal.v:74.17-74.72" time="0" type="ASSERT" location="../../counter_formal.v:74.17-74.72" id="_witness_.check_______counter_formal_v_74_assert_24" tracefile="engine_0\trace.vcd">
+<failure type="ASSERT" message="Property ASSERT in counter_formal at ../../counter_formal.v:74.17-74.72 failed. Trace file: engine_0\trace.vcd" />
+</testcase>
+<testcase classname="prove" name="Property ASSERT in counter_formal at ../../counter_formal.v:77.17-77.45" time="0" type="ASSERT" location="../../counter_formal.v:77.17-77.45" id="_witness_.check_______counter_formal_v_77_assert_47">
+<skipped />
+</testcase>
+<system-out>SBY 12:31:12 [formal\counter_prove] Removing directory 'C:\Users\Anurag\Documents\Default Project\alu_ring\formal\counter_prove'.
+SBY 12:31:12 [formal\counter_prove] engine_0: smtbmc
+SBY 12:31:12 [formal\counter_prove] base: starting process &quot;cd formal\counter_prove/src&amp; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 12:31:12 [formal\counter_prove] base: Warning: Wire counter_formal.\halt is used but has no driver.
+SBY 12:31:12 [formal\counter_prove] base: Warning: Wire counter_formal.\mode [1] is used but has no driver.
+SBY 12:31:12 [formal\counter_prove] base: Warning: Wire counter_formal.\mode [0] is used but has no driver.
+SBY 12:31:12 [formal\counter_prove] base: finished (returncode=0)
+SBY 12:31:12 [formal\counter_prove] prep: starting process &quot;cd formal\counter_prove/model&amp; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 12:31:12 [formal\counter_prove] prep: Warning: Wire counter_formal.\halt is used but has no driver.
+SBY 12:31:12 [formal\counter_prove] prep: Warning: Wire counter_formal.\mode [1] is used but has no driver.
+SBY 12:31:12 [formal\counter_prove] prep: Warning: Wire counter_formal.\mode [0] is used but has no driver.
+SBY 12:31:13 [formal\counter_prove] prep: finished (returncode=0)
+SBY 12:31:13 [formal\counter_prove] smt2: starting process &quot;cd formal\counter_prove/model&amp; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 12:31:13 [formal\counter_prove] smt2: finished (returncode=0)
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: starting process &quot;cd formal\counter_prove&amp; yosys-smtbmc --presat --unroll --noprogress -t 10  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: starting process &quot;cd formal\counter_prove&amp; yosys-smtbmc --presat --unroll -i --noprogress -t 10  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2&quot;
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Trying induction in step 10..
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Trying induction in step 9..
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Trying induction in step 8..
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Trying induction in step 7..
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Trying induction in step 6..
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Trying induction in step 5..
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Trying induction in step 4..
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Trying induction in step 3..
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Trying induction in step 2..
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Trying induction in step 1..
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Trying induction in step 0..
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Temporal induction failed!
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Assert failed in counter_formal: ../../counter_formal.v:63.13-63.26 (_witness_.check_______counter_formal_v_63_assert_14)
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Writing trace to VCD file: engine_0/trace_induct.vcd
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_induct_tb.v
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Writing trace to constraints file: engine_0/trace_induct.smtc
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace_induct.yw
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: ##   0:00:00  Status: failed
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  BMC failed!
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Assert failed in counter_formal: ../../counter_formal.v:74.17-74.72 (_witness_.check_______counter_formal_v_74_assert_24)
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: ##   0:00:00  Status: failed
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: finished (returncode=1)
+SBY 12:31:13 [formal\counter_prove] engine_0.basecase: Status returned by engine for basecase: FAIL
+SBY 12:31:13 [formal\counter_prove] engine_0.induction: terminating process
+SBY 12:31:13 [formal\counter_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 12:31:13 [formal\counter_prove] summary: Elapsed process time unvailable on Windows
+SBY 12:31:13 [formal\counter_prove] summary: engine_0 (smtbmc) returned FAIL for basecase
+SBY 12:31:13 [formal\counter_prove] summary: counterexample trace [basecase]: formal\counter_prove\engine_0\trace.vcd
+SBY 12:31:13 [formal\counter_prove] summary:   failed assertion counter_formal._witness_.check_______counter_formal_v_74_assert_24 at ../../counter_formal.v:74.17-74.72 step 2
+SBY 12:31:13 [formal\counter_prove] summary: counterexample trace [induction]: formal\counter_prove\engine_0\trace_induct.vcd
+SBY 12:31:13 [formal\counter_prove] summary:   failed assertion counter_formal._witness_.check_______counter_formal_v_63_assert_14 at ../../counter_formal.v:63.13-63.26
+SBY 12:31:13 [formal\counter_prove] DONE (FAIL, rc=2)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>
